@@ -93,7 +93,7 @@ const SeatBookingModal = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
-            className="relative bg-[#0c0c0c] border border-gold/30 rounded-3xl overflow-hidden w-full max-w-4xl shadow-[0_0_50px_rgba(212,175,55,0.2)] grid grid-cols-1 md:grid-cols-12 min-h-[500px]"
+            className="relative bg-[#0c0c0c] border border-gold/30 rounded-3xl overflow-y-auto w-full max-w-4xl shadow-[0_0_50px_rgba(212,175,55,0.2)] grid grid-cols-1 md:grid-cols-12 min-h-[auto] md:min-h-[500px] max-h-[90vh]"
           >
             
             {/* Close Button on Top Right */}
@@ -104,8 +104,8 @@ const SeatBookingModal = () => {
               <X className="w-5 h-5" />
             </button>
 
-            {/* Left Side: Gorgeous Graphic Panel matching the theme */}
-            <div className="md:col-span-5 bg-gradient-to-br from-[#121212] via-[#0f0f0f] to-[#050505] relative flex flex-col justify-between p-8 md:p-10 border-r border-white/5 overflow-hidden">
+            {/* Left Side: Gorgeous Graphic Panel matching the theme (Hidden on mobile) */}
+            <div className="md:col-span-5 bg-gradient-to-br from-[#121212] via-[#0f0f0f] to-[#050505] relative hidden md:flex flex-col justify-between p-8 md:p-10 border-r border-white/5 overflow-hidden">
               {/* Background Glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gold/10 rounded-full blur-[80px] pointer-events-none" />
               
@@ -138,7 +138,7 @@ const SeatBookingModal = () => {
             </div>
 
             {/* Right Side: Form details */}
-            <div className="md:col-span-7 p-8 md:p-12 flex flex-col justify-center relative">
+            <div className="md:col-span-7 p-6 sm:p-8 md:p-12 flex flex-col justify-center relative">
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
                   <motion.div
