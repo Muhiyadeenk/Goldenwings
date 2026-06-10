@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000000;
+  --color-gold: #FFC000;
+  --color-white: #FFFFFF;
+}
+
+@layer base {
+  body {
+    @apply bg-primary text-white;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-extrabold text-white leading-tight;
+  }
+  
+  p {
+    @apply text-white/60 text-base leading-relaxed;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Base custom utilities */
+.glass {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+@keyframes borderGlow {
+  0% { 
+    border-color: rgba(255, 192, 0, 0.1); 
+    box-shadow: 0 0 10px rgba(255, 192, 0, 0.05); 
+  }
+  50% { 
+    border-color: rgba(255, 192, 0, 0.8); 
+    box-shadow: 0 0 20px rgba(255, 192, 0, 0.3); 
+  }
+  100% { 
+    border-color: rgba(255, 192, 0, 0.1); 
+    box-shadow: 0 0 10px rgba(255, 192, 0, 0.05); 
+  }
+}
+
+.animate-border-glow {
+  animation: borderGlow 3s infinite alternate;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
