@@ -10,6 +10,7 @@ export default function ContactPage() {
   });
   const [submitted, setSub] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
   // Link scroll to ball rotation and horizontal movement
   const { scrollY } = useScroll();
@@ -18,8 +19,27 @@ export default function ContactPage() {
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.user_name.trim()) newErrors.user_name = "Name is required";
+    else if (formData.user_name.trim().length < 2) newErrors.user_name = "Name must be at least 2 characters";
+
+    if (!formData.user_phone.trim()) newErrors.user_phone = "Phone is required";
+    else if (!/^\+?[0-9\s\-()]{7,15}$/.test(formData.user_phone)) newErrors.user_phone = "Please enter a valid phone number";
+
+    if (!formData.user_email.trim()) newErrors.user_email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.user_email)) newErrors.user_email = "Please enter a valid email address";
+
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const sendEmail = async e => {
     e.preventDefault();
+    if (!validate()) return;
+    
     setLoading(true);
 
     try {
@@ -164,52 +184,60 @@ export default function ContactPage() {
                     <p className="text-white/60 text-base">We'll get back to you shortly.</p>
                   </motion.div>
                 ) : (
-                  <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-10 relative z-10">
-                    <input 
-                      type="text"
-                      name="user_name" 
-                      value={formData.user_name} 
-                      onChange={onChange} 
-                      required
-                      placeholder="Full Name" 
-                      className={inputClass} 
-                    />
+                  <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-8 relative z-10">
+                    <div className="relative">
+                      <input 
+                        type="text"
+                        name="user_name" 
+                        value={formData.user_name} 
+                        onChange={onChange} 
+                        placeholder="Full Name" 
+                        className={`${inputClass} ${errors.user_name ? 'border-red-500' : ''}`} 
+                      />
+                      {errors.user_name && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.user_name}</span>}
+                    </div>
                     
-                    <input 
-                      type="tel"
-                      name="user_phone" 
-                      value={formData.user_phone} 
-                      onChange={onChange} 
-                      required
-                      placeholder="Phone" 
-                      className={inputClass} 
-                    />
+                    <div className="relative">
+                      <input 
+                        type="tel"
+                        name="user_phone" 
+                        value={formData.user_phone} 
+                        onChange={onChange} 
+                        placeholder="Phone" 
+                        className={`${inputClass} ${errors.user_phone ? 'border-red-500' : ''}`} 
+                      />
+                      {errors.user_phone && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.user_phone}</span>}
+                    </div>
                     
-                    <input 
-                      type="email"
-                      name="user_email" 
-                      value={formData.user_email} 
-                      onChange={onChange} 
-                      required
-                      placeholder="Email" 
-                      className={inputClass} 
-                    />
+                    <div className="relative">
+                      <input 
+                        type="email"
+                        name="user_email" 
+                        value={formData.user_email} 
+                        onChange={onChange} 
+                        placeholder="Email" 
+                        className={`${inputClass} ${errors.user_email ? 'border-red-500' : ''}`} 
+                      />
+                      {errors.user_email && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.user_email}</span>}
+                    </div>
                     
-                    <textarea 
-                      name="message" 
-                      value={formData.message} 
-                      onChange={onChange} 
-                      required
-                      rows={4} 
-                      placeholder="Write us" 
-                      className={`${inputClass} resize-none`} 
-                    />
+                    <div className="relative">
+                      <textarea 
+                        name="message" 
+                        value={formData.message} 
+                        onChange={onChange} 
+                        rows={4} 
+                        placeholder="Write us" 
+                        className={`${inputClass} resize-none ${errors.message ? 'border-red-500' : ''}`} 
+                      />
+                      {errors.message && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.message}</span>}
+                    </div>
                     
-                    <div className="flex justify-end mt-4">
+                    <div className="flex justify-end mt-2">
                       <button 
                         type="submit" 
                         disabled={loading}
-                        className="flex items-center justify-center gap-2 bg-[#FFC000] hover:bg-yellow-400 text-black font-extrabold text-[15px] tracking-wide px-12 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,192,0,0.3)] disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                        className="flex items-center justify-center gap-2 bg-[#FFC000] hover:bg-yellow-400 text-black font-extrabold text-[15px] tracking-wide px-12 py-4 rounded-full transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,192,0,0.3)] disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none will-change-transform"
                       >
                         {loading ? (
                           <span className="flex items-center gap-2">

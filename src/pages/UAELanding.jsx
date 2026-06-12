@@ -6,7 +6,7 @@ import {
   ChevronRight, Globe, BarChart3, Star, Volume2, VolumeX
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import uaeMobileVideo from '../assets/uae responsive.MP4';
+import uaeMobileVideo from '../assets/videos/uae responsive.MP4';
 
 const Counter = ({ end, label, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -123,10 +123,10 @@ const UAELanding = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="flex flex-col sm:flex-row items-center justify-start gap-6"
             >
-              <a href="#services" className="w-full sm:w-auto px-8 py-4 bg-[#FFC000] text-[#0a0a0a] font-bold rounded-full hover:scale-105 transition-all flex items-center justify-center gap-2 text-lg">
+              <a href="#services" className="w-full sm:w-auto px-8 py-4 bg-[#FFC000] text-[#0a0a0a] font-bold rounded-full hover:scale-105 transition flex items-center justify-center gap-2 text-lg will-change-transform">
                 Explore Services <ArrowRight className="w-5 h-5 -rotate-45" />
               </a>
-              <Link to="/contact" className="w-full sm:w-auto px-8 py-4 border border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition-all flex items-center justify-center text-lg">
+              <Link to="/contact" className="w-full sm:w-auto px-8 py-4 border border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition flex items-center justify-center text-lg">
                 Book Consultation
               </Link>
             </motion.div>
@@ -137,7 +137,7 @@ const UAELanding = () => {
         <div className="absolute bottom-10 left-6 md:hidden z-50">
           <button
             onClick={() => setIsMuted(!isMuted)}
-            className="w-12 h-12 bg-black/40 hover:bg-black/70 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+            className="w-12 h-12 bg-black/40 hover:bg-black/70 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 transition shadow-[0_0_15px_rgba(0,0,0,0.5)]"
             title={isMuted ? "Unmute Video" : "Mute Video"}
           >
             {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5 text-[#FFC000]" />}
@@ -195,7 +195,7 @@ const UAELanding = () => {
               <motion.div 
                 key={idx}
                 variants={fadeInUp}
-                className="bg-[#0f0f0f] rounded-xl p-8 border border-white/5 hover:border-[#FFC000]/50 hover:-translate-y-2 transition-all duration-300 group shadow-lg"
+                className="bg-[#0f0f0f] rounded-xl p-8 border border-white/5 hover:border-[#FFC000]/50 hover:-translate-y-2 transition duration-300 group shadow-lg will-change-transform"
               >
                 <div className="text-[#FFC000] mb-6 opacity-80 group-hover:opacity-100 transition-opacity">
                   {service.icon}
@@ -227,7 +227,7 @@ const UAELanding = () => {
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop" 
                   alt="Business Consultants in UAE" 
                   className="w-full h-[500px] object-cover grayscale-[20%]"
-                />
+                 loading="lazy" />
               </div>
             </motion.div>
 
@@ -286,7 +286,7 @@ const UAELanding = () => {
               <motion.div 
                 key={idx} 
                 variants={fadeInUp}
-                className="px-6 py-3 bg-[#151515] border border-white/10 rounded-full text-white font-medium hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/50 transition-all cursor-default"
+                className="px-6 py-3 bg-[#151515] border border-white/10 rounded-full text-white font-medium hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/50 transition cursor-default"
               >
                 {emirate}
               </motion.div>
@@ -392,10 +392,10 @@ const UAELanding = () => {
               Partner with Golden Wings Accounting & Bookkeeping LLP for expert financial solutions that empower sustainable business growth.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link to="/contact" className="w-full sm:w-auto px-8 py-4 bg-[#D4AF37] text-[#0F0F0F] font-bold rounded-lg hover:bg-[#b8952b] transition-all flex items-center justify-center text-lg shadow-lg">
+              <Link to="/contact" className="w-full sm:w-auto px-8 py-4 bg-[#D4AF37] text-[#0F0F0F] font-bold rounded-lg hover:bg-[#b8952b] transition flex items-center justify-center text-lg shadow-lg">
                 Schedule Consultation
               </Link>
-              <a href="mailto:goldenwingsgcc1@gmail.com" className="w-full sm:w-auto px-8 py-4 border border-white text-white font-bold rounded-lg hover:bg-white hover:text-black transition-all flex items-center justify-center text-lg">
+              <a href="mailto:goldenwingsgcc1@gmail.com" className="w-full sm:w-auto px-8 py-4 border border-white text-white font-bold rounded-lg hover:bg-white hover:text-black transition flex items-center justify-center text-lg">
                 Contact Our Team
               </a>
             </div>
@@ -441,13 +441,13 @@ const UAELanding = () => {
             <div className="space-y-6">
               <h4 className="text-lg font-semibold text-white mb-4">Connect With Us</h4>
               <div className="flex gap-4">
-                <a href="https://wa.me/971564705971" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition-all">
+                <a href="https://wa.me/971564705971" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition">
                   <Phone className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition-all">
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
                 </a>
-                <a href="mailto:goldenwingsgcc1@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition-all">
+                <a href="mailto:goldenwingsgcc1@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>

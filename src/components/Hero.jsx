@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Volume2, VolumeX } from 'lucide-react';
 
-import backgroundVideoDesktop from '../assets/IMG_7182.MOV';
-import backgroundVideoMobile from '../assets/responsive.MOV';
+import backgroundVideoDesktop from '../assets/videos/IMG_7182.MOV';
+import backgroundVideoMobile from '../assets/videos/responsive.MOV';
 
 const taglines = [
   {
@@ -109,7 +109,7 @@ const Hero = () => {
             >
               <button 
                 onClick={() => window.dispatchEvent(new Event('open-booking-modal'))}
-                className="bg-gold hover:bg-gold/90 text-primary px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]"
+                className="bg-gold hover:bg-gold/90 text-primary px-8 py-4 rounded-full font-bold text-lg transition flex items-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]"
               >
                 Contact Us <ArrowRight className="w-5 h-5" />
               </button>
@@ -125,7 +125,7 @@ const Hero = () => {
       <div className="absolute bottom-10 left-6 md:left-12 z-50">
         <button
           onClick={() => setIsMuted(!isMuted)}
-          className="w-12 h-12 md:w-14 md:h-14 bg-black/40 hover:bg-black/70 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+          className="w-12 h-12 md:w-14 md:h-14 bg-black/40 hover:bg-black/70 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 transition shadow-[0_0_15px_rgba(0,0,0,0.5)]"
           title={isMuted ? "Unmute Video" : "Mute Video"}
         >
           {isMuted ? <VolumeX className="w-5 h-5 md:w-6 md:h-6" /> : <Volume2 className="w-5 h-5 md:w-6 md:h-6 text-gold" />}

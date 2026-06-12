@@ -41,8 +41,8 @@ const GlobalPresence = () => {
             <img 
               src="/ksa_cityscape.png" 
               alt="KSA" 
-              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-            />
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
+             loading="lazy" />
             
             <div className="absolute inset-0 z-20 flex flex-col justify-end items-center p-8 text-center pb-12">
               <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">KSA</h3>
@@ -50,7 +50,7 @@ const GlobalPresence = () => {
                 Delve into our realm of business setup, incorporation, formation and business consulting services in Saudi Arabia.
               </p>
               
-              <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition-all duration-300 pointer-events-none">
+              <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition duration-300 pointer-events-none">
                 <ArrowUpRight className="w-5 h-5" />
               </button>
             </div>
@@ -71,8 +71,8 @@ const GlobalPresence = () => {
               <img 
                 src="/uae_cityscape.png" 
                 alt="UAE" 
-                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-              />
+                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
+               loading="lazy" />
               
               <div className="absolute inset-0 z-20 flex flex-col justify-end items-center p-8 text-center pb-12">
                 <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">UAE</h3>
@@ -80,7 +80,7 @@ const GlobalPresence = () => {
                   Our practical insights and strategies help you with the entire spectrum of business management solutions in the UAE.
                 </p>
                 
-                <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition-all duration-300 pointer-events-none">
+                <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition duration-300 pointer-events-none">
                   <ArrowUpRight className="w-5 h-5" />
                 </button>
               </div>
@@ -101,8 +101,8 @@ const GlobalPresence = () => {
               <img 
                 src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=1000&auto=format&fit=crop" 
                 alt="India" 
-                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-              />
+                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
+               loading="lazy" />
               
               <div className="absolute inset-0 z-20 flex flex-col justify-end items-center p-8 text-center pb-12">
                 <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">INDIA</h3>
@@ -110,7 +110,7 @@ const GlobalPresence = () => {
                   Discover our comprehensive business services and career-focused courses designed to help professionals and organizations achieve sustainable growth and success across India.
                 </p>
                 
-                <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition-all duration-300 pointer-events-none">
+                <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition duration-300 pointer-events-none">
                   <ArrowUpRight className="w-5 h-5" />
                 </button>
               </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../assets/Golden_Wings_Logo_Vecter_File-removebg-preview.png';
+import logo from '../assets/images/Golden_Wings_Logo_Vecter_File-removebg-preview.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,16 +22,16 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? 'top-4 px-4 sm:px-8 flex justify-center' : 'top-0 flex justify-center'}`}>
-      <nav className={`w-full transition-all duration-500 ease-in-out ${
+    <header className={`fixed w-full z-50 transition duration-500 ease-in-out ${scrolled ? 'top-4 px-4 sm:px-8 flex justify-center' : 'top-0 flex justify-center'}`}>
+      <nav className={`w-full transition duration-500 ease-in-out ${
         scrolled 
           ? `max-w-6xl bg-[#0a0a0a]/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] ${isOpen ? 'rounded-3xl' : 'rounded-full'}` 
           : 'max-w-full bg-transparent rounded-none'
       }`}>
-        <div className={`mx-auto flex justify-between items-center transition-all duration-500 ease-in-out ${scrolled ? 'py-4 px-6 sm:px-8' : 'container px-6 lg:px-12 py-6'}`}>
+        <div className={`mx-auto flex justify-between items-center transition duration-500 ease-in-out ${scrolled ? 'py-4 px-6 sm:px-8' : 'container px-6 lg:px-12 py-6'}`}>
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <img src={logo} alt="Golden Wings Logo" className="h-10 sm:h-12 object-contain transition-transform duration-300 group-hover:scale-105" />
+          <img src={logo} alt="Golden Wings Logo" className="h-10 sm:h-12 object-contain transition-transform duration-300 group-hover:scale-105 will-change-transform"  loading="lazy" />
           <span className="text-white font-bold text-xl sm:text-2xl tracking-wide">Golden<span className="text-gold">Wings</span></span>
         </Link>
 
@@ -45,7 +45,7 @@ const Navbar = () => {
             </div>
             
             {/* Dropdown Menu */}
-            <div className="absolute top-full left-0 mt-1 w-60 bg-[#0a0a0a]/95 backdrop-blur-xl rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 overflow-hidden border border-gold/20">
+            <div className="absolute top-full left-0 mt-1 w-60 bg-[#0a0a0a]/95 backdrop-blur-xl rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 translate-y-2 group-hover:translate-y-0 overflow-hidden border border-gold/20">
               <Link to="/team" className="block px-6 py-4 hover:bg-white/5 transition-colors border-b border-gold/10 group/item">
                 <div className="text-white group-hover/item:text-gold transition-colors font-bold text-lg mb-0.5">Team</div>
                 <div className="text-gray-400 text-sm font-normal">Meet our expert team</div>
@@ -72,7 +72,7 @@ const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:flex">
-          <a href="#contact" className="flex items-center gap-2 bg-gold hover:bg-gold/90 text-primary px-6 py-3 rounded-full font-semibold text-base transition-all shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)]">
+          <a href="#contact" className="flex items-center gap-2 bg-gold hover:bg-gold/90 text-primary px-6 py-3 rounded-full font-semibold text-base transition shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)]">
             <Phone className="w-5 h-5" />
             {phoneNumber}
           </a>
@@ -95,8 +95,17 @@ const Navbar = () => {
           >
             <div className="flex flex-col px-6 py-4 space-y-4">
               <Link to="/" className="text-white hover:text-gold transition-colors text-lg" onClick={() => setIsOpen(false)}>Home</Link>
-              <Link to="/about" className="text-white hover:text-gold transition-colors text-lg" onClick={() => setIsOpen(false)}>About Us</Link>
-              <Link to="/bootcamp" className="text-white hover:text-gold transition-colors text-lg" onClick={() => setIsOpen(false)}>Boot Camp</Link>
+              
+              <div className="space-y-3 pt-2">
+                <div className="text-white/50 text-xs font-bold uppercase tracking-wider">About Us</div>
+                <div className="flex flex-col space-y-3 pl-4 border-l border-white/10 ml-2">
+                  <Link to="/team" className="text-white hover:text-gold transition-colors text-lg" onClick={() => setIsOpen(false)}>Team</Link>
+                  <Link to="/alumni" className="text-white hover:text-gold transition-colors text-lg" onClick={() => setIsOpen(false)}>Alumni</Link>
+                  <Link to="/gallery" className="text-white hover:text-gold transition-colors text-lg" onClick={() => setIsOpen(false)}>Gallery</Link>
+                </div>
+              </div>
+
+              <Link to="/bootcamp" className="text-white hover:text-gold transition-colors text-lg pt-2" onClick={() => setIsOpen(false)}>Boot Camp</Link>
               <Link to="/hire" className="text-white hover:text-gold transition-colors text-lg" onClick={() => setIsOpen(false)}>Hire From Us</Link>
               {isLocalPage ? (
                 <a href="#contact" className="text-white hover:text-gold transition-colors text-lg" onClick={() => setIsOpen(false)}>Contact Us</a>

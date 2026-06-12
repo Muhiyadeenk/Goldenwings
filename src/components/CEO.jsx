@@ -35,7 +35,7 @@ const CEO = () => {
             <p className="text-gold font-semibold text-sm mb-8 italic">Our results will speak for itself.</p>
 
             {/* LinkedIn */}
-            <div className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-4 w-fit hover:border-gold/30 hover:bg-gold/5 transition-all duration-300 group">
+            <div className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-4 w-fit hover:border-gold/30 hover:bg-gold/5 transition duration-300 group">
               <div className="w-10 h-10 rounded-full bg-[#0077b5] flex items-center justify-center flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -66,7 +66,7 @@ const CEO = () => {
                 src="/sharafu.png"
                 alt="Sharafudheen K — CEO Golden Wings"
                 className="w-full h-auto object-cover"
-              />
+               loading="lazy" />
               {/* Bottom name overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5">
                 <p className="text-gold font-bold text-base">Sharafudheen K</p>

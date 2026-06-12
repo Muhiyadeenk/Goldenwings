@@ -38,7 +38,7 @@ const Opportunities = () => {
 
             <a
               href="#services"
-              className="inline-flex items-center gap-2 bg-gold text-primary font-bold px-8 py-4 rounded-full text-base hover:bg-yellow-400 transition-all duration-300 shadow-lg shadow-gold/30 hover:shadow-gold/50 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-gold text-primary font-bold px-8 py-4 rounded-full text-base hover:bg-yellow-400 transition duration-300 shadow-lg shadow-gold/30 hover:shadow-gold/50 hover:-translate-y-0.5 will-change-transform"
             >
               Explore Services <ArrowUpRight className="w-5 h-5" />
             </a>
@@ -63,7 +63,7 @@ const Opportunities = () => {
                 {places.map((place) => (
                   <MapMarker key={place.id} longitude={place.lng} latitude={place.lat}>
                     <MarkerContent>
-                      <div className="relative flex items-center justify-center size-5 cursor-pointer rounded-full border-2 border-yellow-400 bg-yellow-500 shadow-[0_0_15px_rgba(250,204,21,0.9)] transition-transform hover:scale-110 group">
+                      <div className="relative flex items-center justify-center size-5 cursor-pointer rounded-full border-2 border-yellow-400 bg-yellow-500 shadow-[0_0_15px_rgba(250,204,21,0.9)] transition-transform hover:scale-110 group will-change-transform">
                         {/* Ping animation for that radar feel */}
                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75"></span>
                       </div>

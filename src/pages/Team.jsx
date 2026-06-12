@@ -118,15 +118,15 @@ const Team = () => {
                 zIndex: 10,
                 transition: { type: "spring", stiffness: 350, damping: 15 }
               }}
-              className="group relative bg-[#111] border border-white/5 rounded-2xl overflow-hidden hover:border-gold/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.25)] transition-all duration-300 shadow-md flex flex-col h-[400px] cursor-pointer"
+              className="group relative bg-[#111] border border-white/5 rounded-2xl overflow-hidden hover:border-gold/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.25)] transition duration-300 shadow-md flex flex-col h-[400px] cursor-pointer"
             >
               {/* Member Portrait Image Wrapper */}
               <div className="relative w-full h-[70%] overflow-hidden bg-white/5">
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                />
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500 group-hover:scale-105 will-change-transform"
+                 loading="lazy" />
                 {/* Luxury overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/10 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
               </div>
@@ -149,7 +149,7 @@ const Team = () => {
           <motion.button 
             whileHover={{ scale: 1.1, backgroundColor: "#e29c1d" }}
             whileTap={{ scale: 0.95 }}
-            className="w-12 h-12 rounded-xl bg-gold flex items-center justify-center text-primary font-bold shadow-lg shadow-gold/20 hover:shadow-gold/45 transition-all duration-300"
+            className="w-12 h-12 rounded-xl bg-gold flex items-center justify-center text-primary font-bold shadow-lg shadow-gold/20 hover:shadow-gold/45 transition duration-300"
           >
             <ArrowRight className="w-6 h-6 stroke-[3]" />
           </motion.button>

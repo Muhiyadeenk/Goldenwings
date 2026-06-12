@@ -30,14 +30,14 @@ function TimelineStep({ step }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="flex flex-col md:flex-row gap-8 md:gap-16 relative group sticky top-32 lg:top-40 mb-[40vh]"
+      className="flex flex-row gap-4 md:gap-8 relative group sticky top-24 md:top-32 lg:top-40 mb-[30vh] md:mb-[40vh]"
     >
       {/* Icon Node (Left Side Sign) */}
       <motion.div 
-        className="flex-shrink-0 relative z-10 flex flex-col items-center"
+        className="flex-shrink-0 relative z-10"
         style={{ opacity: cardOpacity }}
       >
-        <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center -ml-[35px] md:-ml-0 mt-6 md:mt-10 bg-[#0B0B0B] rounded-full">
+        <div className="relative w-12 h-12 md:w-20 md:h-20 flex items-center justify-center -ml-[48px] md:-ml-[88px] mt-6 md:mt-10 bg-[#0B0B0B] rounded-full">
           
           {/* Framer Motion SVG Circle Animation */}
           <figure className="absolute inset-0 m-0 p-0 transform -rotate-90">
@@ -75,8 +75,8 @@ function TimelineStep({ step }) {
           </figure>
 
           {/* Inner Icon */}
-          <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.9)] relative z-10 transition-colors duration-500 group-hover:bg-[#FFC000]">
-            <Icon className="w-6 h-6 md:w-7 md:h-7 text-[#FFC000] group-hover:text-black transition-colors duration-500" />
+          <div className="w-8 h-8 md:w-14 md:h-14 rounded-full bg-black flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.9)] relative z-10 transition-colors duration-500 group-hover:bg-[#FFC000]">
+            <Icon className="w-4 h-4 md:w-7 md:h-7 text-[#FFC000] group-hover:text-black transition-colors duration-500" />
           </div>
 
         </div>
@@ -87,15 +87,15 @@ function TimelineStep({ step }) {
         className="flex-1 origin-top"
         style={{ scale: cardScale, opacity: cardOpacity, filter: cardFilter }}
       >
-        <div className="bg-black rounded-2xl p-10 md:p-14 border border-white/5 group-hover:border-[#FFC000]/80 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(255,192,0,0.15)] relative overflow-hidden group-hover:-translate-y-1 min-h-[240px] md:min-h-[280px] flex flex-col justify-center">
+        <div className="bg-black rounded-2xl p-6 md:p-14 border border-white/5 group-hover:border-[#FFC000]/80 transition duration-500 hover:shadow-[0_10px_40px_rgba(255,192,0,0.15)] relative overflow-hidden group-hover:-translate-y-1 min-h-[200px] md:min-h-[280px] flex flex-col justify-center will-change-transform">
           {/* Subtle hover glow */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#FFC000]/0 to-[#FFC000]/0 group-hover:from-[#FFC000]/10 group-hover:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
           
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-extrabold text-white/60 group-hover:text-white transition-colors duration-500 mb-4">
+            <h3 className="text-xl md:text-3xl font-extrabold text-white/60 group-hover:text-white transition-colors duration-500 mb-2 md:mb-4">
               {step.title}
             </h3>
-            <p className="text-white/40 group-hover:text-white/80 transition-colors duration-500 leading-relaxed text-base md:text-lg">
+            <p className="text-white/40 group-hover:text-white/80 transition-colors duration-500 leading-relaxed text-sm md:text-lg">
               {step.description}
             </p>
           </div>
@@ -186,10 +186,10 @@ export default function Bootcamp() {
         </div>
 
         {/* Timeline Section */}
-        <div className="relative pl-8 md:pl-16 mt-16">
+        <div className="relative pl-12 md:pl-24 mt-16">
           
           {/* Main Vertical Track Line */}
-          <div className="absolute left-[39px] md:left-[103px] top-16 bottom-20 w-[2px] bg-gradient-to-b from-[#FFC000]/50 via-[#FFC000]/20 to-transparent shadow-[0_0_10px_rgba(255,192,0,0.2)]"></div>
+          <div className="absolute left-[24px] md:left-[48px] top-6 bottom-20 w-[2px] bg-gradient-to-b from-[#FFC000]/50 via-[#FFC000]/20 to-transparent shadow-[0_0_10px_rgba(255,192,0,0.2)]"></div>
 
           <div className="flex flex-col relative z-10 gap-2">
             {steps.map((step) => (
@@ -207,7 +207,7 @@ export default function Bootcamp() {
         >
           <button 
             onClick={() => window.dispatchEvent(new Event('open-booking-modal'))}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FFC000] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFC000] text-black font-extrabold text-[16px] tracking-wide px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_30px_rgba(255,192,0,0.3)]"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FFC000] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFC000] text-black font-extrabold text-[16px] tracking-wide px-10 py-4 rounded-full transition duration-300 hover:-translate-y-1 shadow-[0_10px_30px_rgba(255,192,0,0.3)] will-change-transform"
           >
             Register <ArrowUpRight className="w-5 h-5" />
           </button>

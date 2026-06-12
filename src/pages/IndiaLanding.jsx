@@ -64,10 +64,10 @@ const IndiaLanding = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="flex flex-col sm:flex-row items-center justify-start gap-6"
             >
-              <a href="#courses" className="w-full sm:w-auto px-8 py-4 bg-[#FFC000] text-[#0a0a0a] font-bold rounded-full hover:scale-105 transition-all flex items-center justify-center gap-2 text-lg">
+              <a href="#courses" className="w-full sm:w-auto px-8 py-4 bg-[#FFC000] text-[#0a0a0a] font-bold rounded-full hover:scale-105 transition flex items-center justify-center gap-2 text-lg will-change-transform">
                 Explore Courses <ArrowRight className="w-5 h-5 -rotate-45" />
               </a>
-              <a href="#services" className="w-full sm:w-auto px-8 py-4 text-white font-bold rounded-full hover:bg-white/5 transition-all flex items-center justify-center text-lg">
+              <a href="#services" className="w-full sm:w-auto px-8 py-4 text-white font-bold rounded-full hover:bg-white/5 transition flex items-center justify-center text-lg">
                 View Services
               </a>
             </motion.div>
@@ -100,7 +100,7 @@ const IndiaLanding = () => {
               <motion.div 
                 key={idx}
                 variants={fadeInUp}
-                className="bg-[#0f0f0f] rounded-xl p-8 border border-white/5 hover:border-[#FFC000]/50 hover:-translate-y-2 transition-all duration-300 group shadow-lg flex flex-col h-full"
+                className="bg-[#0f0f0f] rounded-xl p-8 border border-white/5 hover:border-[#FFC000]/50 hover:-translate-y-2 transition duration-300 group shadow-lg flex flex-col h-full will-change-transform"
               >
                 <div className="text-[#FFC000] mb-6 opacity-80 group-hover:opacity-100 transition-opacity">
                   {service.icon}
@@ -143,7 +143,7 @@ const IndiaLanding = () => {
               <motion.div 
                 key={idx}
                 variants={fadeInUp}
-                className="bg-[#0f0f0f] rounded-xl p-8 border border-white/5 hover:border-[#FFC000]/50 hover:-translate-y-2 transition-all duration-300 group shadow-lg"
+                className="bg-[#0f0f0f] rounded-xl p-8 border border-white/5 hover:border-[#FFC000]/50 hover:-translate-y-2 transition duration-300 group shadow-lg will-change-transform"
               >
                 <div className="text-[#FFC000] mb-6 opacity-80 group-hover:opacity-100 transition-opacity">
                   {course.icon}
@@ -174,10 +174,10 @@ const IndiaLanding = () => {
               Unlock growth opportunities through our expert services and industry-driven learning programs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a href="#courses" className="w-full sm:w-auto px-8 py-4 bg-[#FFC000] text-[#0a0a0a] font-bold rounded-full hover:scale-105 transition-all flex items-center justify-center text-lg shadow-lg">
+              <a href="#courses" className="w-full sm:w-auto px-8 py-4 bg-[#FFC000] text-[#0a0a0a] font-bold rounded-full hover:scale-105 transition flex items-center justify-center text-lg shadow-lg will-change-transform">
                 Explore Courses
               </a>
-              <a href="#services" className="w-full sm:w-auto px-8 py-4 border border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition-all flex items-center justify-center text-lg">
+              <a href="#services" className="w-full sm:w-auto px-8 py-4 border border-white text-white font-bold rounded-full hover:bg-white hover:text-black transition flex items-center justify-center text-lg">
                 View Services
               </a>
             </div>
@@ -221,13 +221,13 @@ const IndiaLanding = () => {
             <div className="space-y-6">
               <h4 className="text-lg font-semibold text-white mb-4">Connect With Us</h4>
               <div className="flex gap-4">
-                <a href="https://wa.me/919061515616" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#FFC000] hover:text-[#0a0a0a] transition-all">
+                <a href="https://wa.me/919061515616" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#FFC000] hover:text-[#0a0a0a] transition">
                   <Phone className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#FFC000] hover:text-[#0a0a0a] transition-all">
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#FFC000] hover:text-[#0a0a0a] transition">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
                 </a>
-                <a href="mailto:goldenwingsgcc1@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#FFC000] hover:text-[#0a0a0a] transition-all">
+                <a href="mailto:goldenwingsgcc1@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#FFC000] hover:text-[#0a0a0a] transition">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>

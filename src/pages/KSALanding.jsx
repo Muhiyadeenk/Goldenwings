@@ -73,10 +73,10 @@ const KSALanding = () => {
               transition={{ delay: 0.5 }}
               className="flex flex-col sm:flex-row items-center gap-6"
             >
-              <a href="#services" className="w-full sm:w-auto px-8 py-4 bg-[#ffcc00] text-black font-bold rounded-full hover:bg-[#e6b800] transition-all flex items-center justify-center gap-2 text-lg shadow-[0_0_40px_rgba(255,204,0,0.2)] hover:shadow-[0_0_50px_rgba(255,204,0,0.4)]">
+              <a href="#services" className="w-full sm:w-auto px-8 py-4 bg-[#ffcc00] text-black font-bold rounded-full hover:bg-[#e6b800] transition flex items-center justify-center gap-2 text-lg shadow-[0_0_40px_rgba(255,204,0,0.2)] hover:shadow-[0_0_50px_rgba(255,204,0,0.4)]">
                 Explore Services <ArrowRight className="w-5 h-5" />
               </a>
-              <a href="#contact" className="w-full sm:w-auto px-8 py-4 border-2 border-white/20 text-white font-bold rounded-full hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2 text-lg backdrop-blur-sm">
+              <a href="#contact" className="w-full sm:w-auto px-8 py-4 border-2 border-white/20 text-white font-bold rounded-full hover:bg-white hover:text-black transition flex items-center justify-center gap-2 text-lg backdrop-blur-sm">
                 Book a Consultation
               </a>
             </motion.div>
@@ -116,7 +116,7 @@ const KSALanding = () => {
                 variants={fadeInUp}
                 className="bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 text-center group hover:border-gold/30 transition-colors"
               >
-                <div className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gold to-yellow-600 mb-2 group-hover:scale-110 transition-transform">{stat.num}</div>
+                <div className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gold to-yellow-600 mb-2 group-hover:scale-110 transition-transform will-change-transform">{stat.num}</div>
                 <div className="text-gray-400 text-sm font-medium uppercase tracking-wide">{stat.label}</div>
               </motion.div>
             ))}
@@ -148,9 +148,9 @@ const KSALanding = () => {
               <motion.div 
                 key={idx}
                 variants={fadeInUp}
-                className="bg-gradient-to-b from-[#151515] to-[#0a0a0a] p-8 rounded-2xl border border-white/5 hover:border-gold/50 transition-all group flex flex-col items-center text-center"
+                className="bg-gradient-to-b from-[#151515] to-[#0a0a0a] p-8 rounded-2xl border border-white/5 hover:border-gold/50 transition group flex flex-col items-center text-center"
               >
-                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-black transition-all">
+                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-black transition will-change-transform">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold tracking-tight mb-3">{feature.title}</h3>
@@ -211,7 +211,7 @@ const KSALanding = () => {
               <motion.div 
                 key={idx}
                 variants={fadeInUp}
-                className="bg-[#1a1a1a] rounded-2xl p-8 border border-white/5 hover:border-gold/30 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group"
+                className="bg-[#1a1a1a] rounded-2xl p-8 border border-white/5 hover:border-gold/30 hover:-translate-y-2 transition duration-300 relative overflow-hidden group will-change-transform"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-bl-full -z-10 group-hover:bg-gold/10 transition-colors"></div>
                 <div className="text-gold w-12 h-12 bg-black/50 rounded-xl flex items-center justify-center mb-6">
@@ -308,7 +308,7 @@ const KSALanding = () => {
                   <motion.div 
                     key={idx}
                     variants={fadeInUp}
-                    className="flex items-center p-6 bg-[#1a1a1a] rounded-xl border border-white/5 hover:border-gold/30 hover:bg-[#1f1f1f] transition-all"
+                    className="flex items-center p-6 bg-[#1a1a1a] rounded-xl border border-white/5 hover:border-gold/30 hover:bg-[#1f1f1f] transition"
                   >
                     <CheckCircle2 className="text-gold mr-4 shrink-0" />
                     <span className="font-semibold">{benefit}</span>
@@ -329,7 +329,7 @@ const KSALanding = () => {
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-semibold tracking-tight mb-12">Our Global Expertise</motion.h2>
             
             <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
-              <div className="bg-[#0a0a0a] p-8 rounded-2xl border border-gold/20 flex-1 min-w-[280px] max-w-sm hover:-translate-y-2 transition-transform shadow-[0_10px_30px_rgba(212,175,55,0.1)]">
+              <div className="bg-[#0a0a0a] p-8 rounded-2xl border border-gold/20 flex-1 min-w-[280px] max-w-sm hover:-translate-y-2 transition-transform shadow-[0_10px_30px_rgba(212,175,55,0.1)] will-change-transform">
                 <h3 className="text-2xl font-semibold tracking-tight text-gold mb-4">Saudi Arabia</h3>
                 <p className="text-gray-300">Business Setup, Corporate Taxation, ZATCA Compliance</p>
               </div>
@@ -394,13 +394,13 @@ const KSALanding = () => {
               </motion.div>
 
               <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" className="flex flex-col justify-center gap-4">
-                <a href="tel:+966564418027" className="w-full py-4 bg-transparent border-2 border-gold text-gold font-bold rounded-xl hover:bg-gold hover:text-black transition-all flex items-center justify-center gap-2 text-lg">
+                <a href="tel:+966564418027" className="w-full py-4 bg-transparent border-2 border-gold text-gold font-bold rounded-xl hover:bg-gold hover:text-black transition flex items-center justify-center gap-2 text-lg">
                   <Phone className="w-5 h-5" /> Call Now
                 </a>
-                <a href="https://wa.me/966564418027" target="_blank" rel="noreferrer" className="w-full py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#1ebe5d] transition-all flex items-center justify-center gap-2 text-lg shadow-lg shadow-[#25D366]/20">
+                <a href="https://wa.me/966564418027" target="_blank" rel="noreferrer" className="w-full py-4 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#1ebe5d] transition flex items-center justify-center gap-2 text-lg shadow-lg shadow-[#25D366]/20">
                   WhatsApp Us
                 </a>
-                <a href="mailto:goldenwingstasks@gmail.com" className="w-full py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-all flex items-center justify-center gap-2 text-lg">
+                <a href="mailto:goldenwingstasks@gmail.com" className="w-full py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition flex items-center justify-center gap-2 text-lg">
                   Schedule Consultation
                 </a>
               </motion.div>

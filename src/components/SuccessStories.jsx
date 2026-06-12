@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Pause } from 'lucide-react';
 
-import placement1 from '../assets/placement1.MP4';
-import placement2 from '../assets/placement2.MP4';
-import placement3 from '../assets/placement3.MP4';
-import placement4 from '../assets/placement4.MP4';
-import placement5 from '../assets/placement 5.MP4';
+import placement1 from '../assets/videos/placement1.MP4';
+import placement2 from '../assets/videos/placement2.MP4';
+import placement3 from '../assets/videos/placement3.MP4';
+import placement4 from '../assets/videos/placement4.MP4';
+import placement5 from '../assets/videos/placement 5.MP4';
 
 const stories = [
   { id: 1, name: "Ahmad K.", company: "KPMG", quote: "Best Decision In My Life", video: placement1 },
@@ -52,7 +52,7 @@ const VideoCard = ({ story, idx, isPlaying, onTogglePlay }) => {
             e.stopPropagation();
             onTogglePlay(idx);
           }}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/50 backdrop-blur-md hover:bg-[#D4AF37] hover:text-black text-white flex items-center justify-center transition-all border border-white/20 hover:border-transparent"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/50 backdrop-blur-md hover:bg-[#D4AF37] hover:text-black text-white flex items-center justify-center transition border border-white/20 hover:border-transparent"
         >
           {isPlaying ? <Pause className="w-5 h-5 md:w-6 md:h-6" /> : <Play className="w-5 h-5 md:w-6 md:h-6 ml-1" />}
         </button>

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import logo from '../assets/Golden_Wings_Logo_Vecter_File-removebg-preview.png';
+import logo from '../assets/images/Golden_Wings_Logo_Vecter_File-removebg-preview.png';
 
 export default function IntroAnimation({ onComplete }) {
   const [show, setShow] = useState(true);
@@ -37,7 +37,7 @@ export default function IntroAnimation({ onComplete }) {
                 transition={{ duration: 1.5, ease: "easeOut" }}
                 className="relative"
               >
-                <img src={logo} alt="Golden Wings" className="w-56 md:w-80 h-auto object-contain drop-shadow-xl" />
+                <img src={logo} alt="Golden Wings" className="w-56 md:w-80 h-auto object-contain drop-shadow-xl"  loading="lazy" />
               </motion.div>
             </div>
 

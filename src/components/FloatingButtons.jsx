@@ -16,7 +16,7 @@ const FloatingButtons = () => {
         onClick={() => window.dispatchEvent(new Event('open-booking-modal'))}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.95 }}
-        className="h-[52px] bg-[#f89b10] text-white rounded-[14px] flex items-center shadow-[0_4px_20px_rgba(248,155,16,0.35)] transition-all duration-300 overflow-hidden"
+        className="h-[52px] bg-[#f89b10] text-white rounded-[14px] flex items-center shadow-[0_4px_20px_rgba(248,155,16,0.35)] transition duration-300 overflow-hidden"
         style={{ width: seatHovered ? '185px' : '52px' }}
       >
         <div className="w-[52px] h-[52px] flex items-center justify-center flex-shrink-0">
@@ -46,7 +46,7 @@ const FloatingButtons = () => {
         onMouseLeave={() => setChatHovered(false)}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.95 }}
-        className="h-[52px] bg-[#f89b10] text-white rounded-[14px] flex items-center shadow-[0_4px_20px_rgba(248,155,16,0.35)] transition-all duration-300 overflow-hidden"
+        className="h-[52px] bg-[#f89b10] text-white rounded-[14px] flex items-center shadow-[0_4px_20px_rgba(248,155,16,0.35)] transition duration-300 overflow-hidden"
         style={{ width: chatHovered ? '175px' : '52px' }}
       >
         <div className="w-[52px] h-[52px] flex items-center justify-center flex-shrink-0">

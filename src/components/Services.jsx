@@ -109,7 +109,7 @@ const Services = () => {
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                 whileHover={{ scale: 1.02 }}
                 onClick={() => setSelectedService(service)}
-                className="bg-[#0f0f0f] border border-white/5 rounded-2xl p-8 hover:bg-[#151515] hover:border-[#FFC000]/50 hover:-translate-y-2 transition-all duration-300 group cursor-pointer relative flex flex-col h-full shadow-lg"
+                className="bg-[#0f0f0f] border border-white/5 rounded-2xl p-8 hover:bg-[#151515] hover:border-[#FFC000]/50 hover:-translate-y-2 transition duration-300 group cursor-pointer relative flex flex-col h-full shadow-lg will-change-transform"
               >
                 <div className="text-[#FFC000] mb-6 opacity-80 group-hover:opacity-100 transition-opacity">
                   {service.icon}
@@ -139,7 +139,7 @@ const Services = () => {
         <div className="mt-16 text-center">
           <motion.button
             onClick={() => setShowAll(!showAll)}
-            className="px-8 py-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300 font-medium inline-flex items-center gap-2"
+            className="px-8 py-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-black transition duration-300 font-medium inline-flex items-center gap-2"
           >
             {showAll ? "Show Less" : "Explore More"} 
             <span className={`transform transition-transform duration-300 ${showAll ? '-rotate-90' : 'rotate-45'}`}>
@@ -200,7 +200,7 @@ const Services = () => {
                           window.dispatchEvent(new Event('open-booking-modal'));
                         }, 150);
                       }}
-                      className="bg-gold hover:bg-gold/90 text-primary px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]"
+                      className="bg-gold hover:bg-gold/90 text-primary px-8 py-4 rounded-full font-bold text-lg transition flex items-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]"
                     >
                       <Calendar className="w-5 h-5" /> Book Consultation
                     </button>

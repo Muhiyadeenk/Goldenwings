@@ -49,7 +49,7 @@ const CorePartners = () => {
                 src={partner.logo}
                 alt={partner.name}
                 className="w-full h-full object-contain"
-              />
+               loading="lazy" />
             </motion.div>
           ))}
         </div>

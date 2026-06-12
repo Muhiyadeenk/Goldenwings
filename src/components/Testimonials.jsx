@@ -72,7 +72,7 @@ const Testimonials = () => {
                       onClick={prev}
                       className="w-12 h-12 rounded-full border border-white/20 text-white hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] transition-colors duration-300 flex items-center justify-center group"
                     >
-                      <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
+                      <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform will-change-transform" />
                     </button>
                     <button 
                       onClick={next}

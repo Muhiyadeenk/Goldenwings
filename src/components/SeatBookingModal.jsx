@@ -13,6 +13,7 @@ const SeatBookingModal = () => {
     phone_number: '',
     email: ''
   });
+  const [errors, setErrors] = useState({});
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -38,8 +39,25 @@ const SeatBookingModal = () => {
     return () => window.removeEventListener('open-booking-modal', handleOpenEvent);
   }, []);
 
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.first_name.trim()) newErrors.first_name = "First name is required";
+    if (!formData.last_name.trim()) newErrors.last_name = "Last name is required";
+    
+    if (!formData.phone_number.trim()) newErrors.phone_number = "Phone is required";
+    else if (!/^\+?[0-9\s\-()]{7,15}$/.test(formData.phone_number)) newErrors.phone_number = "Please enter a valid phone number";
+
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Please enter a valid email address";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
+    
     setLoading(true);
     
     try {
@@ -158,68 +176,68 @@ const SeatBookingModal = () => {
                     <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="relative">
-                          <label className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1.5 block">First Name *</label>
+                          <label className={`text-xs font-semibold uppercase tracking-wider mb-1.5 block ${errors.first_name ? 'text-red-400' : 'text-white/40'}`}>First Name *</label>
                           <div className="relative">
-                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30"><User className="w-4 h-4" /></span>
+                            <span className={`absolute left-4 top-1/2 -translate-y-1/2 ${errors.first_name ? 'text-red-500' : 'text-white/30'}`}><User className="w-4 h-4" /></span>
                             <input 
                               name="first_name"
                               type="text" 
-                              required
                               placeholder="John" 
                               value={formData.first_name}
                               onChange={(e) => setFormData({...formData, first_name: e.target.value})}
-                              className="w-full bg-white/5 border border-white/10 text-white rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all placeholder:text-white/25"
+                              className={`w-full bg-white/5 border text-white rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-1 transition placeholder:text-white/25 ${errors.first_name ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-gold focus:ring-gold'}`}
                             />
                           </div>
+                          {errors.first_name && <p className="text-red-500 text-[10px] mt-1 absolute -bottom-4">{errors.first_name}</p>}
                         </div>
 
                         <div className="relative">
-                          <label className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1.5 block">Last Name *</label>
+                          <label className={`text-xs font-semibold uppercase tracking-wider mb-1.5 block ${errors.last_name ? 'text-red-400' : 'text-white/40'}`}>Last Name *</label>
                           <div className="relative">
-                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30"><User className="w-4 h-4" /></span>
+                            <span className={`absolute left-4 top-1/2 -translate-y-1/2 ${errors.last_name ? 'text-red-500' : 'text-white/30'}`}><User className="w-4 h-4" /></span>
                             <input 
                               name="last_name"
                               type="text" 
-                              required
                               placeholder="Doe" 
                               value={formData.last_name}
                               onChange={(e) => setFormData({...formData, last_name: e.target.value})}
-                              className="w-full bg-white/5 border border-white/10 text-white rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all placeholder:text-white/25"
+                              className={`w-full bg-white/5 border text-white rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-1 transition placeholder:text-white/25 ${errors.last_name ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-gold focus:ring-gold'}`}
                             />
                           </div>
+                          {errors.last_name && <p className="text-red-500 text-[10px] mt-1 absolute -bottom-4">{errors.last_name}</p>}
                         </div>
                       </div>
 
-                      <div className="relative">
-                        <label className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1.5 block">Phone Number *</label>
+                      <div className="relative mt-2">
+                        <label className={`text-xs font-semibold uppercase tracking-wider mb-1.5 block ${errors.phone_number ? 'text-red-400' : 'text-white/40'}`}>Phone Number *</label>
                         <div className="relative">
-                          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30"><Phone className="w-4 h-4" /></span>
+                          <span className={`absolute left-4 top-1/2 -translate-y-1/2 ${errors.phone_number ? 'text-red-500' : 'text-white/30'}`}><Phone className="w-4 h-4" /></span>
                           <input 
                             name="phone_number"
                             type="tel" 
-                            required
                             placeholder="+971 50 123 4567" 
                             value={formData.phone_number}
                             onChange={(e) => setFormData({...formData, phone_number: e.target.value})}
-                            className="w-full bg-white/5 border border-white/10 text-white rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all placeholder:text-white/25"
+                            className={`w-full bg-white/5 border text-white rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-1 transition placeholder:text-white/25 ${errors.phone_number ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-gold focus:ring-gold'}`}
                           />
                         </div>
+                        {errors.phone_number && <p className="text-red-500 text-[10px] mt-1 absolute -bottom-4">{errors.phone_number}</p>}
                       </div>
 
-                      <div className="relative">
-                        <label className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1.5 block">Email Address *</label>
+                      <div className="relative mt-2">
+                        <label className={`text-xs font-semibold uppercase tracking-wider mb-1.5 block ${errors.email ? 'text-red-400' : 'text-white/40'}`}>Email Address *</label>
                         <div className="relative">
-                          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30"><Mail className="w-4 h-4" /></span>
+                          <span className={`absolute left-4 top-1/2 -translate-y-1/2 ${errors.email ? 'text-red-500' : 'text-white/30'}`}><Mail className="w-4 h-4" /></span>
                           <input 
                             name="email"
                             type="email" 
-                            required
                             placeholder="john.doe@example.com" 
                             value={formData.email}
                             onChange={(e) => setFormData({...formData, email: e.target.value})}
-                            className="w-full bg-white/5 border border-white/10 text-white rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all placeholder:text-white/25"
+                            className={`w-full bg-white/5 border text-white rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-1 transition placeholder:text-white/25 ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-white/10 focus:border-gold focus:ring-gold'}`}
                           />
                         </div>
+                        {errors.email && <p className="text-red-500 text-[10px] mt-1 absolute -bottom-4">{errors.email}</p>}
                       </div>
 
                       <motion.button 
@@ -227,7 +245,7 @@ const SeatBookingModal = () => {
                         disabled={loading}
                         whileHover={{ scale: 1.02, backgroundColor: "#e29c1d" }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full bg-gold hover:bg-gold/90 text-primary font-bold py-4 rounded-xl shadow-lg shadow-gold/20 hover:shadow-gold/40 transition-all duration-300 text-base mt-6 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:scale-100"
+                        className="w-full bg-gold hover:bg-gold/90 text-primary font-bold py-4 rounded-xl shadow-lg shadow-gold/20 hover:shadow-gold/40 transition duration-300 text-base mt-6 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:scale-100 will-change-transform"
                       >
                         {loading ? "Submitting..." : "Book Seat Now"}
                       </motion.button>
@@ -262,7 +280,7 @@ const SeatBookingModal = () => {
 
                     <button 
                       onClick={handleClose}
-                      className="bg-white/10 hover:bg-white/15 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200"
+                      className="bg-white/10 hover:bg-white/15 text-white font-semibold px-6 py-3 rounded-xl transition duration-200"
                     >
                       Close Window
                     </button>

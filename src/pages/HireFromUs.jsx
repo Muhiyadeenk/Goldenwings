@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Star, CheckCircle2 } from 'lucide-react';
-import techImage from '../assets/tech_meeting.png';
+import techImage from '../assets/images/tech_meeting.png';
 import emailjs from '@emailjs/browser';
 
 export default function HireFromUs() {
@@ -11,6 +11,7 @@ export default function HireFromUs() {
   });
   const [submitted, setSub] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const roles = [
     "Financial Accounting",
@@ -22,8 +23,30 @@ export default function HireFromUs() {
 
   const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
+  const validate = () => {
+    const newErrors = {};
+    if (!form.full_name.trim()) newErrors.full_name = "Name is required";
+    
+    if (!form.company_name.trim()) newErrors.company_name = "Company is required";
+    
+    if (!form.accounting_role) newErrors.accounting_role = "Role is required";
+
+    if (!form.phone_number.trim()) newErrors.phone_number = "Phone is required";
+    else if (!/^\+?[0-9\s\-()]{7,15}$/.test(form.phone_number)) newErrors.phone_number = "Invalid phone number";
+
+    if (!form.email.trim()) newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) newErrors.email = "Invalid email address";
+
+    if (!form.requirements.trim()) newErrors.requirements = "Please describe your requirements";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
+    
     setLoading(true);
 
     try {
@@ -116,7 +139,7 @@ export default function HireFromUs() {
                 src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" 
                 alt="Tech professionals meeting" 
                 className="absolute inset-0 w-full h-full object-cover"
-              />
+               loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             </div>
           </motion.div>
@@ -160,72 +183,85 @@ export default function HireFromUs() {
                 
                 <form ref={formRef} onSubmit={onSubmit} className="flex flex-col gap-10">
                   <div className="flex flex-col sm:flex-row gap-10 sm:gap-12">
-                    <input 
-                      name="full_name" 
-                      value={form.full_name} 
-                      onChange={onChange} 
-                      required
-                      placeholder="Full Name" 
-                      className={inputClass} 
-                    />
-                    <input 
-                      name="company_name" 
-                      value={form.company_name} 
-                      onChange={onChange} 
-                      required
-                      placeholder="Company Name" 
-                      className={inputClass} 
-                    />
+                    <div className="relative w-full">
+                      <input 
+                        name="full_name" 
+                        value={form.full_name} 
+                        onChange={onChange} 
+                        placeholder="Full Name" 
+                        className={`${inputClass} ${errors.full_name ? 'border-red-500' : ''}`} 
+                      />
+                      {errors.full_name && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.full_name}</span>}
+                    </div>
+                    <div className="relative w-full">
+                      <input 
+                        name="company_name" 
+                        value={form.company_name} 
+                        onChange={onChange} 
+                        placeholder="Company Name" 
+                        className={`${inputClass} ${errors.company_name ? 'border-red-500' : ''}`} 
+                      />
+                      {errors.company_name && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.company_name}</span>}
+                    </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-10 sm:gap-12">
-                    <select 
-                      name="accounting_role"
-                      value={form.accounting_role}
-                      onChange={onChange}
-                      required
-                      className={`${inputClass} appearance-none bg-transparent cursor-pointer`}
-                    >
-                      <option value="" disabled className="bg-[#131313] text-white/40">Select Accounting Role</option>
-                      {roles.map((role, idx) => (
-                        <option key={idx} value={role} className="bg-[#131313] text-white">{role}</option>
-                      ))}
-                    </select>
-                    <input 
-                      name="phone_number" 
-                      type="tel" 
-                      value={form.phone_number} 
-                      onChange={onChange} 
-                      placeholder="Phone Number" 
-                      className={inputClass} 
-                    />
+                    <div className="relative w-full">
+                      <select 
+                        name="accounting_role"
+                        value={form.accounting_role}
+                        onChange={onChange}
+                        className={`${inputClass} appearance-none cursor-pointer ${errors.accounting_role ? 'border-red-500 text-red-400' : 'bg-transparent'}`}
+                      >
+                        <option value="" disabled className="bg-[#131313] text-white/40">Select Accounting Role</option>
+                        {roles.map((role, idx) => (
+                          <option key={idx} value={role} className="bg-[#131313] text-white">{role}</option>
+                        ))}
+                      </select>
+                      {errors.accounting_role && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.accounting_role}</span>}
+                    </div>
+                    <div className="relative w-full">
+                      <input 
+                        name="phone_number" 
+                        type="tel" 
+                        value={form.phone_number} 
+                        onChange={onChange} 
+                        placeholder="Phone Number" 
+                        className={`${inputClass} ${errors.phone_number ? 'border-red-500' : ''}`} 
+                      />
+                      {errors.phone_number && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.phone_number}</span>}
+                    </div>
                   </div>
                   
-                  <input 
-                    name="email" 
-                    type="email" 
-                    value={form.email} 
-                    onChange={onChange} 
-                    required
-                    placeholder="Email Address" 
-                    className={inputClass} 
-                  />
+                  <div className="relative w-full">
+                    <input 
+                      name="email" 
+                      type="email" 
+                      value={form.email} 
+                      onChange={onChange} 
+                      placeholder="Email Address" 
+                      className={`${inputClass} ${errors.email ? 'border-red-500' : ''}`} 
+                    />
+                    {errors.email && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.email}</span>}
+                  </div>
                   
-                  <textarea 
-                    name="requirements" 
-                    value={form.requirements} 
-                    onChange={onChange} 
-                    required
-                    rows={4} 
-                    placeholder="Briefly describe your hiring needs..." 
-                    className={`${inputClass} resize-none`} 
-                  />
+                  <div className="relative w-full">
+                    <textarea 
+                      name="requirements" 
+                      value={form.requirements} 
+                      onChange={onChange} 
+                      rows={4} 
+                      placeholder="Briefly describe your hiring needs..." 
+                      className={`${inputClass} resize-none ${errors.requirements ? 'border-red-500' : ''}`} 
+                    />
+                    {errors.requirements && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.requirements}</span>}
+                  </div>
                   
                   <div className="flex justify-center mt-8">
                     <button 
                       type="submit" 
                       disabled={loading}
-                      className="flex items-center justify-center gap-2 bg-[#FFC000] hover:bg-yellow-400 text-black font-extrabold text-[16px] tracking-wide px-16 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,192,0,0.3)] disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none w-full sm:w-auto"
+                      className="flex items-center justify-center gap-2 bg-[#FFC000] hover:bg-yellow-400 text-black font-extrabold text-[16px] tracking-wide px-16 py-4 rounded-full transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,192,0,0.3)] disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none w-full sm:w-auto will-change-transform"
                     >
                       {loading ? (
                         <span className="flex items-center gap-2">

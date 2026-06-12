@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/Golden_Wings_Logo_Vecter_File-removebg-preview.png';
+import logo from '../assets/images/Golden_Wings_Logo_Vecter_File-removebg-preview.png';
 
 const socials = [
   {
@@ -58,7 +58,7 @@ const Footer = () => {
           {/* Brand column */}
           <div className="flex flex-col pr-6">
             <Link to="/" className="mb-6 inline-block">
-              <img src={logo} alt="Golden Wings Logo" className="h-20 object-contain" />
+              <img src={logo} alt="Golden Wings Logo" className="h-20 object-contain"  loading="lazy" />
             </Link>
             <p className="text-[#a1a1aa] text-[13.5px] leading-relaxed mb-4">
               Ecan Global Business Solution and Education Center, is one of the leading educational institute along with consultancy services providing the best own developed education curriculum with assured placement.
@@ -80,7 +80,7 @@ const Footer = () => {
                     to="#courses"
                     className="group inline-flex items-center gap-2 text-[#a1a1aa] hover:text-[#FFC000] transition-colors duration-200 text-[13.5px]"
                   >
-                    <span className="w-0 group-hover:w-3 h-[1.5px] bg-[#FFC000] transition-all duration-300 rounded-full flex-shrink-0"></span>
+                    <span className="w-0 group-hover:w-3 h-[1.5px] bg-[#FFC000] transition duration-300 rounded-full flex-shrink-0"></span>
                     {course}
                   </Link>
                 </li>
@@ -100,7 +100,7 @@ const Footer = () => {
                     href={link.href}
                     className="group inline-flex items-center gap-2 text-[#a1a1aa] hover:text-[#FFC000] transition-colors duration-200 text-[13.5px]"
                   >
-                    <span className="w-0 group-hover:w-3 h-[1.5px] bg-[#FFC000] transition-all duration-300 rounded-full flex-shrink-0"></span>
+                    <span className="w-0 group-hover:w-3 h-[1.5px] bg-[#FFC000] transition duration-300 rounded-full flex-shrink-0"></span>
                     {link.label}
                   </a>
                 </li>
@@ -149,7 +149,7 @@ const Footer = () => {
                 key={i}
                 href={s.href}
                 aria-label={s.label}
-                className="w-8 h-8 rounded-full flex items-center justify-center text-white/60 border border-white/10 hover:text-[#FFC000] hover:border-[#FFC000]/50 hover:-translate-y-1 transition-all duration-200"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-white/60 border border-white/10 hover:text-[#FFC000] hover:border-[#FFC000]/50 hover:-translate-y-1 transition duration-200 will-change-transform"
               >
                 {s.icon}
               </a>

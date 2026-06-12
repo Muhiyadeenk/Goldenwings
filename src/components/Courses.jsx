@@ -71,11 +71,11 @@ const Courses = () => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               whileHover={{ scale: 1.02 }}
-              className="group relative bg-[#111] backdrop-blur-sm border border-white/10 p-8 rounded-3xl overflow-hidden hover:bg-[#1a1a1a] hover:border-gold/30 transition-all duration-300 cursor-pointer shadow-lg"
+              className="group relative bg-[#111] backdrop-blur-sm border border-white/10 p-8 rounded-3xl overflow-hidden hover:bg-[#1a1a1a] hover:border-gold/30 transition duration-300 cursor-pointer shadow-lg"
             >
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gold flex items-center justify-center shadow-lg shadow-gold/20 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 rounded-full bg-gold flex items-center justify-center shadow-lg shadow-gold/20 group-hover:scale-110 transition-transform duration-300 will-change-transform">
                     {course.icon}
                   </div>
                   <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-gold transition-colors text-white group-hover:text-primary">
@@ -144,7 +144,7 @@ const Courses = () => {
                           window.dispatchEvent(new Event('open-booking-modal'));
                         }, 150);
                       }}
-                      className="bg-gold hover:bg-gold/90 text-primary px-8 py-4 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]"
+                      className="bg-gold hover:bg-gold/90 text-primary px-8 py-4 rounded-full font-bold text-lg transition shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]"
                     >
                       Enroll in {selectedCourse.title}
                     </button>

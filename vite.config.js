@@ -14,6 +14,7 @@ export default defineConfig({
   optimizeDeps: {
     entries: ['index.html'],
   },
+  assetsInclude: ['**/*.heic'],
   server: {
     watch: {
       ignored: ['**/backend/**'],

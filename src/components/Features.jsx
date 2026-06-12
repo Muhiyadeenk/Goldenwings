@@ -54,13 +54,13 @@ const Features = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl group hover:bg-gold/10 hover:border-gold/30 hover:shadow-[0_0_30px_rgba(255,192,0,0.15)] transition-all duration-500 hover:-translate-y-2 cursor-pointer relative overflow-hidden"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl group hover:bg-gold/10 hover:border-gold/30 hover:shadow-[0_0_30px_rgba(255,192,0,0.15)] transition duration-500 hover:-translate-y-2 cursor-pointer relative overflow-hidden will-change-transform"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
               
               <div className="relative z-10">
-                <div className="w-20 h-20 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-6 relative group-hover:bg-gold shadow-lg group-hover:shadow-gold/50 transition-all duration-300">
-                  <div className="absolute inset-0 rounded-full border border-gold/30 scale-110 group-hover:scale-100 transition-transform duration-300"></div>
+                <div className="w-20 h-20 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-6 relative group-hover:bg-gold shadow-lg group-hover:shadow-gold/50 transition duration-300">
+                  <div className="absolute inset-0 rounded-full border border-gold/30 scale-110 group-hover:scale-100 transition-transform duration-300 will-change-transform"></div>
                   <div className="z-10 text-white group-hover:text-primary transition-colors duration-300">
                     {feature.icon}
                   </div>
