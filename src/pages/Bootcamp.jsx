@@ -3,18 +3,18 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Layers, UserCheck, Briefcase, Compass, Lightbulb, Rocket, ArrowUpRight } from 'lucide-react';
 
 function TimelineStep({ step }) {
-  const ref = useRef(null);
+  const wrapperRef = useRef(null);
   
   // Track scroll progress for this specific card using Framer Motion (but native scroll)
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: wrapperRef,
     offset: ["start 85%", "center 45%"] // Circle starts filling when top of card hits 85% of screen height, completes at 45%
   });
 
   // Track the progress of the card being covered by the next one
   const { scrollYProgress: coverProgress } = useScroll({
-    target: ref,
-    offset: ["start 10%", "start -40%"] 
+    target: wrapperRef,
+    offset: ["end 300px", "end 120px"] 
   });
 
   const cardScale = useTransform(coverProgress, [0, 1], [1, 0.85]);
@@ -24,14 +24,14 @@ function TimelineStep({ step }) {
   const Icon = step.icon;
 
   return (
-    <motion.div 
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="flex flex-row gap-4 md:gap-8 relative group sticky top-24 md:top-32 lg:top-40 mb-[30vh] md:mb-[40vh]"
-    >
+    <div ref={wrapperRef} className="relative w-full pb-[30vh] md:pb-[40vh]">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="flex flex-row gap-4 md:gap-8 relative group sticky top-24 md:top-32 lg:top-40"
+      >
       {/* Icon Node (Left Side Sign) */}
       <motion.div 
         className="flex-shrink-0 relative z-10"
@@ -101,7 +101,7 @@ function TimelineStep({ step }) {
           </div>
         </div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 
