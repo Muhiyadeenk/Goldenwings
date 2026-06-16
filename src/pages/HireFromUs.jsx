@@ -2,7 +2,6 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Star, CheckCircle2 } from 'lucide-react';
 import techImage from '../assets/images/tech_meeting.png';
-import emailjs from '@emailjs/browser';
 
 export default function HireFromUs() {
   const formRef = useRef();
@@ -43,39 +42,39 @@ export default function HireFromUs() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
-    
-    setLoading(true);
 
-    try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_HIRE_SERVICE_ID,
-        import.meta.env.VITE_HIRE_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_HIRE_PUBLIC_KEY
-      );
+    const message = `*New Hiring Inquiry*
 
-      setSub(true);
-        setForm({
-          full_name: '',
-          company_name: '',
-          accounting_role: '',
-          phone_number: '',
-          email: '',
-          requirements: ''
-        });
+👤 Full Name: ${form.full_name}
+🏢 Company Name: ${form.company_name}
+📋 Accounting Role: ${form.accounting_role}
+📞 Phone Number: ${form.phone_number}
+📧 Email: ${form.email}
 
-        setTimeout(() => {
-          setSub(false);
-        }, 5000);
-    } catch (err) {
-      console.log(err);
-      alert(`Error caught: ${err.message || err}`);
-    } finally {
-      setLoading(false);
-    }
+📝 Hiring Requirements:
+${form.requirements}`;
+
+    const whatsappNumber = "919061515616";
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+
+    setSub(true);
+    setForm({
+      full_name: '',
+      company_name: '',
+      accounting_role: '',
+      phone_number: '',
+      email: '',
+      requirements: ''
+    });
+
+    setTimeout(() => {
+      setSub(false);
+    }, 5000);
   };
 
   const inputClass = "w-full bg-transparent border-b border-white/20 pb-3 text-white text-[15px] placeholder-white/40 focus:border-[#FFC000] outline-none transition-colors duration-300";

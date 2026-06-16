@@ -43,11 +43,19 @@ export default function ContactPage() {
     setLoading(true);
 
     try {
+      const templateParams = {
+        full_name: formData.user_name,
+        email: formData.user_email,
+        phone_number: formData.user_phone,
+        message: formData.message,
+        time: new Date().toLocaleString(),
+      };
+
       // Send email using EmailJS
-      await emailjs.sendForm(
+      await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        form.current,
+        templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
