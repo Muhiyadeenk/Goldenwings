@@ -6,7 +6,6 @@ import {
   ChevronRight, Globe, BarChart3, Star, Volume2, VolumeX
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import uaeMobileVideo from '../assets/videos/uae responsive.MP4';
 
 const Counter = ({ end, label, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -38,16 +37,9 @@ const Counter = ({ end, label, suffix = "" }) => {
 };
 
 const UAELanding = () => {
-  const [isMuted, setIsMuted] = useState(true);
-  const mobileVideoRef = useRef(null);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  useEffect(() => {
-    if (mobileVideoRef.current) mobileVideoRef.current.muted = isMuted;
-  }, [isMuted]);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 40 },
@@ -71,24 +63,12 @@ const UAELanding = () => {
       <section className="relative min-h-screen flex items-center overflow-hidden pb-12 pt-24 bg-[#0a0a0a]">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a] z-0"></div>
         
-        {/* Desktop Image */}
+        {/* Background Image */}
         <motion.div 
-          className="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center z-0 hidden md:block"
+          className="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center z-0"
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 25, ease: "linear", repeat: Infinity }}
         />
-
-        {/* Mobile Video */}
-        <video 
-          ref={mobileVideoRef}
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover md:hidden opacity-30 z-0"
-        >
-          <source src={uaeMobileVideo} type="video/mp4" />
-        </video>
         {/* Removed left-to-right gradient to avoid making the left side too dark */}
         <div className="w-full px-8 sm:px-12 md:px-16 lg:px-24 mx-auto relative z-20">
           <motion.div 
@@ -131,17 +111,6 @@ const UAELanding = () => {
               </Link>
             </motion.div>
           </motion.div>
-        </div>
-
-        {/* Sound Toggle Button (Mobile Only) */}
-        <div className="absolute bottom-10 left-6 md:hidden z-50">
-          <button
-            onClick={() => setIsMuted(!isMuted)}
-            className="w-12 h-12 bg-black/40 hover:bg-black/70 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 transition shadow-[0_0_15px_rgba(0,0,0,0.5)]"
-            title={isMuted ? "Unmute Video" : "Mute Video"}
-          >
-            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5 text-[#FFC000]" />}
-          </button>
         </div>
 
       </section>

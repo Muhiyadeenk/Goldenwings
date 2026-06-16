@@ -41,7 +41,8 @@ const VideoCard = ({ story, idx, isPlaying, onTogglePlay }) => {
         src={story.video}
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        preload="none"
+        className="absolute inset-0 w-full h-full object-cover z-0 bg-gray-900"
       />
 
       {/* Bottom - Play Toggle only */}

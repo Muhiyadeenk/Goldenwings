@@ -101,6 +101,7 @@ function TimelineStep({ step }) {
           </div>
         </div>
       </motion.div>
+      </motion.div>
     </div>
   );
 }

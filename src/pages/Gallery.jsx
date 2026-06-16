@@ -13,9 +13,9 @@ import auditWorkImg from '../assets/galllery1/audit work.png';
 import bizIntegrityImg from '../assets/gallery2/business integrety.jpg';
 import demoClassImg from '../assets/gallery2/democlass.png';
 import progImg from '../assets/gallery2/programe.2.heic';
-import slider1Img from '../assets/gallery2/slider1 copy.jpeg';
-import slider2Img from '../assets/gallery2/slider2.jpeg';
-import slider3Img from '../assets/gallery2/slider3.jpeg';
+import slider1Img from '../assets/gallery2/home1.png';
+import slider2Img from '../assets/gallery2/home2.png';
+import slider3Img from '../assets/gallery2/home3.png';
 
 const Gallery = () => {
   const galleryItems = [
