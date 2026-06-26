@@ -30,7 +30,7 @@ const CountUp = ({ end, duration = 2, suffix = "+" }) => {
 const Stats = () => {
   const stats = [
     { value: 1000, label: "Active Students" },
-    { value: 3500, label: "Enrolled" },
+    { value: 3500, label: "Placed" },
     { value: 100, label: "Teachers" },
     { value: 10, label: "Years" }
   ];

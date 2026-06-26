@@ -29,10 +29,10 @@ const CountUp = ({ end, duration = 2, suffix = "+" }) => {
 
 const ClientStats = () => {
   const stats = [
-    { value: 1000, label: "Happy Clients" },
-    { value: 50, label: "Employees" },
-    { value: 4, label: "Years of Experience" },
-    { value: 7, label: "Locations", suffix: "" }
+    { value: 2000, label: "Happy Clients" },
+    { value: 100, label: "Employees" },
+    { value: 10, label: "Years of Experience" },
+    { value: 10, label: "Locations", suffix: "" }
   ];
 
   return (

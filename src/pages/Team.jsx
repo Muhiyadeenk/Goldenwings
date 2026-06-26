@@ -1,47 +1,75 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
+// Import real team photos with exact filenames from disk
+import badushaImg from '../assets/Team/Badusha.Marketinghead.png';
+import dilshadImg from '../assets/Team/dilshad.png';
+import hiroshakImg from '../assets/Team/Hiroshak.png';
+import imageImg from '../assets/Team/image.png';
+import mahroofImg from '../assets/Team/Mahroof.MD.png';
+import muhsinaImg from '../assets/Team/muhsina.png';
+import nihalImg from '../assets/Team/Nihal.MD..jpeg';
+import sayeedImg from '../assets/Team/sayeed.png';
+import sharafuImg from '../assets/Team/sharafu.ceo.png';
+import shifnaImg from '../assets/Team/shifna.png';
+import suhailImg from '../assets/Team/suhail.png';
+
 const Team = () => {
   const teamMembers = [
     {
-      name: "Arjun Mehta",
-      role: "Founder & Director",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400"
+      name: "SHARAFUDEEN K",
+      role: "CEO",
+      image: sharafuImg
     },
     {
-      name: "Sarah Khan",
-      role: "Chief Financial Advisor",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&h=400"
+      name: "NIHAL SALAM KT",
+      role: "MANAGING DIRECTOR",
+      image: nihalImg
     },
     {
-      name: "Rajesh Nair",
-      role: "Senior Taxation Consultant",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=400"
+      name: "MAHROOF CHIRAYIMMAL",
+      role: "MANAGING DIRECTOR",
+      image: mahroofImg
     },
     {
-      name: "Priya Sharma",
-      role: "Lead Accounting Specialist",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400"
+      name: "BADUSHA M",
+      role: "MARKETING HEAD",
+      image: badushaImg
     },
     {
-      name: "Vikram Malhotra",
-      role: "Corporate Law Specialist",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=400"
+      name: "DILSHAD AMEEN C",
+      role: "MANAGING DIRECTOR",
+      image: dilshadImg
     },
     {
-      name: "Ananya Deshmukh",
-      role: "VAT & GCC Compliance Auditor",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&h=400"
+      name: "MUHAMMAD AJMAL KV",
+      role: "PRINCIPAL",
+      image: imageImg
     },
     {
-      name: "Rohan Varma",
-      role: "Senior Financial Analyst",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=400"
+      name: "MUHAMMAD SUHAIL MS",
+      role: "BUSINESS DEVELOPMENT MANGER",
+      image: suhailImg
     },
     {
-      name: "Meera Sen",
-      role: "Digital Branding Manager",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400"
+      name: "MUHAMMED SAYEED K",
+      role: "MANAGING DIRECTOR",
+      image: sayeedImg
+    },
+    {
+      name: "HIROSHA K",
+      role: "Accounting Faculty",
+      image: hiroshakImg
+    },
+    {
+      name: "MUHSINA TV",
+      role: "Accounting Faculty",
+      image: muhsinaImg
+    },
+    {
+      name: "SHIFNA",
+      role: "BDR",
+      image: shifnaImg
     }
   ];
 
@@ -52,20 +80,20 @@ const Team = () => {
       <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        
+
         {/* Team Header Grid matching user design */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-16">
-          
+
           {/* Left Column of Team Header */}
           <div className="lg:col-span-6">
-            <motion.h4 
+            <motion.h4
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-gold font-bold tracking-[0.2em] text-sm lg:text-base uppercase mb-4 flex items-center gap-2"
             >
               <Sparkles className="w-4 h-4" /> TEAM
             </motion.h4>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -76,7 +104,7 @@ const Team = () => {
           </div>
 
           {/* Right Column of Team Header */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -85,7 +113,7 @@ const Team = () => {
             <p className="text-white/80 text-base lg:text-lg leading-relaxed mb-6">
               Our team brings together a wide range of expertise and backgrounds, enabling us to tackle even the most complex challenges with curiosity and excellence.
             </p>
-            
+
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-white/95 font-medium text-base sm:text-lg">
                 <span className="w-2.5 h-2.5 rounded-full bg-gold" />
@@ -112,9 +140,9 @@ const Team = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05, duration: 0.5 }}
-              whileHover={{ 
-                scale: 1.1, 
-                y: -12, 
+              whileHover={{
+                scale: 1.1,
+                y: -12,
                 zIndex: 10,
                 transition: { type: "spring", stiffness: 350, damping: 15 }
               }}
@@ -122,11 +150,11 @@ const Team = () => {
             >
               {/* Member Portrait Image Wrapper */}
               <div className="relative w-full h-[70%] overflow-hidden bg-white/5">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
+                <img
+                  src={member.image}
+                  alt={member.name}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500 group-hover:scale-105 will-change-transform"
-                 loading="lazy" />
+                  loading="lazy" />
                 {/* Luxury overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/10 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
               </div>
@@ -136,9 +164,11 @@ const Team = () => {
                 <h3 className="text-xl font-bold text-white mb-1 group-hover:text-gold transition-colors duration-300">
                   {member.name}
                 </h3>
-                <p className="text-white/60 text-sm font-medium">
-                  {member.role}
-                </p>
+                {member.role && (
+                  <p className="text-white/60 text-sm font-medium">
+                    {member.role}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
@@ -146,7 +176,7 @@ const Team = () => {
 
         {/* Exact bottom right decorative arrow button from the screenshot */}
         <div className="flex justify-end mt-4">
-          <motion.button 
+          <motion.button
             whileHover={{ scale: 1.1, backgroundColor: "#e29c1d" }}
             whileTap={{ scale: 0.95 }}
             className="w-12 h-12 rounded-xl bg-gold flex items-center justify-center text-primary font-bold shadow-lg shadow-gold/20 hover:shadow-gold/45 transition duration-300"

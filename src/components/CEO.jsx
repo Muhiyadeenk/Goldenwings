@@ -25,7 +25,7 @@ const CEO = () => {
             </h2>
 
             <p className="text-white/70 text-base leading-relaxed mb-4">
-              At Golden Wings, we provide practical, skill-based education that leads to real careers. For over eight years, we've helped students grow into trusted professionals in accounting, taxation, and business. Our focus is simple: teach what matters, train with real tools, and prepare every learner to succeed in jobs or start their own journey.
+              At Golden Wings, we provide practical, skill-based education that leads to real careers. For over ten years, we've helped students grow into trusted professionals in accounting, taxation, and business. Our focus is simple: teach what matters, train with real tools, and prepare every learner to succeed in jobs or start their own journey.
             </p>
             <p className="text-white/70 text-base leading-relaxed mb-6">
               We also help students build leadership qualities, like confidence, communication, and critical thinking, so they can lead teams or businesses in the future. Golden Wings is about more than just certificates — it's about creating professionals who are ready to lead, serve, and grow.

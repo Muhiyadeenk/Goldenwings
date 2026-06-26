@@ -124,7 +124,7 @@ const UAELanding = () => {
             whileInView="whileInView"
             className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center divide-x-0 md:divide-x divide-white/10"
           >
-            <motion.div variants={fadeInUp}><Counter end={8} suffix="+" label="Years of Experience" /></motion.div>
+            <motion.div variants={fadeInUp}><Counter end={10} suffix="+" label="Years of Experience" /></motion.div>
             <motion.div variants={fadeInUp}><Counter end={500} suffix="+" label="Businesses Supported" /></motion.div>
             <motion.div variants={fadeInUp}><Counter end={100} suffix="%" label="Compliance Focus" /></motion.div>
             <motion.div variants={fadeInUp}>

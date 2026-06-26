@@ -33,7 +33,7 @@ const About = () => {
             className="md:col-span-8 lg:col-span-9"
           >
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold mb-6 text-white leading-tight">
-              A Legacy of Eight Years in Transformative Education
+              A Legacy of Ten Years in Transformative Education
             </h2>
             <p className="text-white/70 text-base lg:text-lg leading-relaxed">
               An educational institution serves as the foundation for lifelong learning, shaping not only the minds but also the character of its students. It's a place where ideas are born, creativity is nurtured, and potential is unlocked. As Nelson Mandela once said, 'Education is the most powerful weapon which you can use to change the world.' At our institution, we are committed to providing an environment that inspires growth, fosters innovation, and prepares students to face the challenges of tomorrow with confidence and resilience. Here, education is not just about knowledge, but about empowering individuals to make a lasting impact on society.

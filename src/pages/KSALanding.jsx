@@ -95,7 +95,7 @@ const KSALanding = () => {
           >
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Your Trusted Business Partner in <span className="text-gold">KSA</span></motion.h2>
             <motion.p variants={fadeInUp} className="text-gray-400 max-w-4xl mx-auto text-lg leading-relaxed">
-              Golden Wings Global Business Solutions brings over 8 years of professional excellence across India, UAE, and now Saudi Arabia. Our mission is to help businesses achieve compliance, financial clarity, operational efficiency, and sustainable growth through expert advisory services.
+              Golden Wings Global Business Solutions brings over 10 years of professional excellence across India, UAE, and now Saudi Arabia. Our mission is to help businesses achieve compliance, financial clarity, operational efficiency, and sustainable growth through expert advisory services.
             </motion.p>
           </motion.div>
 
