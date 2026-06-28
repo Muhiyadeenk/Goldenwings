@@ -12,27 +12,34 @@ import res2 from '../assets/gallery2/res2.png';
 import res3 from '../assets/gallery2/res3.png';
 import res4 from '../assets/gallery2/res4.png';
 
-const bgImages = [home1, home2, home3, home4];
-const resBgImages = [res1, res2, res3, res4];
-
-const taglines = [
+const slides = [
   {
-    id: 1,
     title1: "Be A Professional,",
     title2: "Not An Ordinary",
-    text: "Behind Every Good Business, There is a Great Accountant. Build your career with the region's leading educational institute."
+    text: "Behind Every Good Business, There is a Great Accountant. Build your career with the region's leading educational institute.",
+    bg: home1,
+    resBg: res1
   },
   {
-    id: 2,
     title1: "From Learner",
     title2: "to Leader",
-    text: "Develop practical expertise that prepares you for real-world success and professional growth."
+    text: "Develop practical expertise that prepares you for real-world success and professional growth.",
+    bg: home2,
+    resBg: res2
   },
   {
-    id: 3,
     title1: "Build Skills. Create Opportunities.",
     title2: "Achieve Success.",
-    text: "Join a learning experience designed to transform ambition into achievement."
+    text: "Join a learning experience designed to transform ambition into achievement.",
+    bg: home3,
+    resBg: res3
+  },
+  {
+    title1: "Be A Professional,",
+    title2: "Not An Ordinary",
+    text: "Behind Every Good Business, There is a Great Accountant. Build your career with the region's leading educational institute.",
+    bg: home4,
+    resBg: res4
   }
 ];
 
@@ -46,8 +53,8 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const currentTaglineIndex = index % taglines.length;
-  const currentBgIndex = index % bgImages.length;
+  const currentSlideIndex = index % slides.length;
+  const currentSlide = slides[currentSlideIndex];
 
   return (
     <section className="relative w-full h-screen min-h-[600px] flex items-center pt-20 overflow-hidden">
@@ -55,29 +62,29 @@ const Hero = () => {
       <div className="absolute inset-0 w-full h-full z-0 bg-black overflow-hidden">
         <AnimatePresence>
           <motion.div
-            key={currentBgIndex}
+            key={currentSlideIndex}
             initial={{ opacity: 0, scale: 1.0 }}
-            animate={{ opacity: 1, scale: 1.15 }}
-            exit={{ opacity: 0, scale: 1.15 }}
+            animate={{ opacity: 1, scale: 1.12 }}
+            exit={{ opacity: 0, scale: 1.12 }}
             transition={{ 
-              opacity: { duration: 1.5 },
+              opacity: { duration: 1.2 },
               scale: { duration: 8, ease: "linear" }
             }}
             className="absolute inset-0 w-full h-full origin-center will-change-transform"
           >
-            <picture>
-              <source media="(max-width: 767px)" srcSet={resBgImages[currentBgIndex]} />
+            <picture className="w-full h-full block">
+              <source media="(max-width: 767px)" srcSet={currentSlide.resBg} />
               <img 
-                src={bgImages[currentBgIndex]} 
-                alt={`Hero Background ${currentBgIndex + 1}`} 
-                className="w-full h-full object-cover"
+                src={currentSlide.bg} 
+                alt={`Hero Background ${currentSlideIndex + 1}`} 
+                className="w-full h-full object-cover object-[center_30%] md:object-center"
               />
             </picture>
           </motion.div>
         </AnimatePresence>
         
-        {/* Uniform dark overlay for maximum readability */}
-        <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
+        {/* Uniform dark overlay for maximum readability - stronger on mobile */}
+        <div className="absolute inset-0 bg-black/70 md:bg-black/55 z-10 pointer-events-none"></div>
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-20">
@@ -86,21 +93,21 @@ const Hero = () => {
           <div className="flex-1 text-left w-full h-[300px] flex flex-col justify-center">
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentTaglineIndex}
+                key={currentSlideIndex}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
-                  {taglines[currentTaglineIndex].title1}<br />
+                  {currentSlide.title1}<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-200">
-                    {taglines[currentTaglineIndex].title2}
+                    {currentSlide.title2}
                   </span>
                 </h1>
                 
                 <p className="text-white/80 text-lg lg:text-xl mb-10 max-w-2xl">
-                  {taglines[currentTaglineIndex].text}
+                  {currentSlide.text}
                 </p>
               </motion.div>
             </AnimatePresence>
@@ -124,8 +131,6 @@ const Hero = () => {
           <div className="hidden lg:block flex-1"></div>
         </div>
       </div>
-
-
 
     </section>
   );
