@@ -7,7 +7,7 @@ import SEO from '../components/SEO';
 import badushaImg from '../assets/Team/Badusha.Marketinghead.png';
 import dilshadImg from '../assets/Team/dilshad.png';
 import hiroshakImg from '../assets/Team/Hiroshak.png';
-import imageImg from '../assets/Team/image.png';
+import imageImg from '../assets/Team/MUHAMMED AJMAL.png';
 import mahroofImg from '../assets/Team/Mahroof.MD.png';
 import muhsinaImg from '../assets/Team/muhsina.png';
 import nihalImg from '../assets/Team/Nihal.MD..jpeg';
@@ -44,7 +44,7 @@ const Team = () => {
   const teamMembers = [
     {
       name: "SHARAFUDEEN K",
-      role: "CEO",
+      role: "FOUNDER & CEO",
       image: sharafuImg
     },
     {
