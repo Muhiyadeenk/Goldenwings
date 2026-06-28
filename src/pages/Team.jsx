@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
@@ -13,8 +14,13 @@ import sayeedImg from '../assets/Team/sayeed.png';
 import sharafuImg from '../assets/Team/sharafu.ceo.png';
 import shifnaImg from '../assets/Team/shifna.png';
 import suhailImg from '../assets/Team/suhail.png';
+import abimanyuImg from '../assets/Team/ABIMANYU.png';
+import anasImg from '../assets/Team/ANAS.png';
+import shakirImg from '../assets/Team/MUHAMMED SHAKIR M.png';
+import zuhairImg from '../assets/Team/ZUHAIR KATTIL PURAYIL.png';
 
 const Team = () => {
+  const [hoveredCard, setHoveredCard] = useState(null);
   const teamMembers = [
     {
       name: "SHARAFUDEEN K",
@@ -33,7 +39,7 @@ const Team = () => {
     },
     {
       name: "BADUSHA M",
-      role: "MARKETING HEAD",
+      role: "MANAGING DIRECTOR",
       image: badushaImg
     },
     {
@@ -70,6 +76,30 @@ const Team = () => {
       name: "SHIFNA",
       role: "BDR",
       image: shifnaImg
+    },
+    {
+      name: "ABIMANYU",
+      role: "TEAM MEMBER",
+      image: abimanyuImg,
+      isPassport: true
+    },
+    {
+      name: "ANAS",
+      role: "TEAM MEMBER",
+      image: anasImg,
+      isPassport: true
+    },
+    {
+      name: "MUHAMMED SHAKIR M",
+      role: "TEAM MEMBER",
+      image: shakirImg,
+      isPassport: true
+    },
+    {
+      name: "ZUHAIR KATTIL PURAYIL",
+      role: "TEAM MEMBER",
+      image: zuhairImg,
+      isPassport: true
     }
   ];
 
@@ -146,22 +176,33 @@ const Team = () => {
                 zIndex: 10,
                 transition: { type: "spring", stiffness: 350, damping: 15 }
               }}
-              className="group relative bg-[#111] border border-white/5 rounded-2xl overflow-hidden hover:border-gold/40 hover:shadow-[0_20px_50px_rgba(212,175,55,0.25)] transition duration-300 shadow-md flex flex-col h-[400px] cursor-pointer"
+              className="relative bg-[#111] border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 shadow-md flex flex-col h-[400px] cursor-default"
+              style={{
+                borderColor: hoveredCard === idx ? 'rgba(212,175,55,0.4)' : 'rgba(255,255,255,0.05)',
+                boxShadow: hoveredCard === idx ? '0 20px 50px rgba(212,175,55,0.25)' : ''
+              }}
+              onMouseEnter={() => setHoveredCard(idx)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Member Portrait Image Wrapper */}
-              <div className="relative w-full h-[70%] overflow-hidden bg-white/5">
+              <div className="relative w-full h-[70%] overflow-hidden bg-white/5 flex items-center justify-center">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500 group-hover:scale-105 will-change-transform"
+                  className={`w-full h-full transition-all duration-500 will-change-transform ${
+                    hoveredCard === idx ? 'scale-105' : ''
+                  } ${
+                    member.isPassport ? 'object-cover object-top' : 'object-cover'
+                  }`}
+                  style={{ filter: hoveredCard === idx ? 'grayscale(0)' : 'grayscale(1)', transition: 'filter 0.5s ease' }}
                   loading="lazy" />
                 {/* Luxury overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/10 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+                <div className={`absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/10 to-transparent transition-opacity duration-300 ${hoveredCard === idx ? 'opacity-40' : 'opacity-60'}`} />
               </div>
 
               {/* Member Info details */}
               <div className="p-6 flex-1 flex flex-col justify-end bg-gradient-to-b from-transparent to-[#0d0d0d]">
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-gold transition-colors duration-300">
+                <h3 className={`text-xl font-bold mb-1 transition-colors duration-300 ${hoveredCard === idx ? 'text-gold' : 'text-white'}`}>
                   {member.name}
                 </h3>
                 {member.role && (

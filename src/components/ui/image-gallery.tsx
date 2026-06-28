@@ -37,31 +37,41 @@ interface AnimatedImageProps {
 
 function AnimatedImage({ item, ratio }: AnimatedImageProps) {
   const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -80px 0px" });
   const [isLoading, setIsLoading] = React.useState(true);
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  // Show color when the image has scrolled into view AND finished loading
+  const showColor = isInView && !isLoading;
 
   return (
     <AspectRatio
       ref={ref}
       ratio={ratio}
       className="relative size-full rounded-xl sm:rounded-2xl overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <img
         alt={item.name}
         src={item.image}
         className={cn(
-          'size-full object-cover transition-[opacity,transform] duration-700 ease-out will-change-[opacity,transform]',
+          'size-full object-cover ease-out will-change-[opacity,transform,filter]',
           {
             'opacity-0': !isInView,
             'opacity-100': isInView && !isLoading,
-            'group-hover:scale-105': isInView && !isLoading
+            'scale-105': isHovered && isInView && !isLoading
           }
         )}
+        style={{
+          filter: showColor ? 'grayscale(0)' : 'grayscale(1)',
+          transition: 'opacity 0.7s ease, filter 0.8s ease, transform 0.5s ease'
+        }}
         onLoad={() => setIsLoading(false)}
         loading="lazy"
       />
       
-      {/* Very subtle bottom shadow just for text readability, removed heavy dark overlay */}
+      {/* Very subtle bottom shadow just for text readability */}
       <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
       
       <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5 flex flex-col justify-end z-20 pointer-events-none">
@@ -70,7 +80,7 @@ function AnimatedImage({ item, ratio }: AnimatedImageProps) {
             {item.role}
           </span>
         </div>
-        <div className="transition-transform duration-500 translate-y-2 sm:translate-y-3 group-hover:translate-y-0">
+        <div className="transition-all duration-500">
           <h3 className="text-sm sm:text-xl md:text-2xl font-bold leading-tight text-white group-hover:text-gold transition-colors duration-300">
             {item.name}
           </h3>

@@ -14,7 +14,7 @@ function TimelineStep({ step }) {
   // Track the progress of the card being covered by the next one
   const { scrollYProgress: coverProgress } = useScroll({
     target: wrapperRef,
-    offset: ["end 300px", "end 120px"] 
+    offset: ["end 240px", "end 100px"] 
   });
 
   const cardScale = useTransform(coverProgress, [0, 1], [1, 0.85]);
@@ -24,83 +24,83 @@ function TimelineStep({ step }) {
   const Icon = step.icon;
 
   return (
-    <div ref={wrapperRef} className="relative w-full pb-[30vh] md:pb-[40vh]">
+    <div ref={wrapperRef} className="relative w-full pb-[10vh] md:pb-[15vh]">
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex flex-row gap-4 md:gap-8 relative group sticky top-24 md:top-32 lg:top-40"
+        className="flex flex-row gap-4 md:gap-16 relative group sticky top-32 lg:top-40"
       >
-      {/* Icon Node (Left Side Sign) */}
-      <motion.div 
-        className="flex-shrink-0 relative z-10"
-        style={{ opacity: cardOpacity }}
-      >
-        <div className="relative w-12 h-12 md:w-20 md:h-20 flex items-center justify-center -ml-[48px] md:-ml-[88px] mt-6 md:mt-10 bg-[#0B0B0B] rounded-full">
-          
-          {/* Framer Motion SVG Circle Animation */}
-          <figure className="absolute inset-0 m-0 p-0 transform -rotate-90">
-              <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 100 100"
-                  className="overflow-visible"
-              >
-                  {/* Background Track Circle */}
-                  <circle
-                      cx="50"
-                      cy="50"
-                      r="40"
-                      fill="none"
-                      stroke="#FFC000"
-                      strokeWidth="3"
-                      className="opacity-10"
-                  />
-                  {/* Animated Progress Indicator */}
-                  <motion.circle
-                      cx="50"
-                      cy="50"
-                      r="40"
-                      fill="none"
-                      stroke="#FFC000"
-                      strokeWidth="5"
-                      strokeLinecap="round"
-                      style={{
-                          pathLength: scrollYProgress,
-                      }}
-                      className="drop-shadow-[0_0_8px_rgba(255,192,0,0.8)]"
-                  />
-              </svg>
-          </figure>
+        {/* Icon Node (Left Side Sign) */}
+        <motion.div 
+          className="flex-shrink-0 relative z-10"
+          style={{ opacity: cardOpacity }}
+        >
+          <div className="relative w-12 h-12 md:w-20 md:h-20 flex items-center justify-center -ml-[48px] md:-ml-[88px] mt-6 md:mt-10 bg-[#0B0B0B] rounded-full">
+            
+            {/* Framer Motion SVG Circle Animation */}
+            <figure className="absolute inset-0 m-0 p-0 transform -rotate-90">
+                <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 100 100"
+                    className="overflow-visible"
+                >
+                    {/* Background Track Circle */}
+                    <circle
+                        cx="50"
+                        cy="50"
+                        r="40"
+                        fill="none"
+                        stroke="#FFC000"
+                        strokeWidth="3"
+                        className="opacity-10"
+                    />
+                    {/* Animated Progress Indicator */}
+                    <motion.circle
+                        cx="50"
+                        cy="50"
+                        r="40"
+                        fill="none"
+                        stroke="#FFC000"
+                        strokeWidth="5"
+                        strokeLinecap="round"
+                        style={{
+                            pathLength: scrollYProgress,
+                        }}
+                        className="drop-shadow-[0_0_8px_rgba(255,192,0,0.8)]"
+                    />
+                </svg>
+            </figure>
 
-          {/* Inner Icon */}
-          <div className="w-8 h-8 md:w-14 md:h-14 rounded-full bg-black flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.9)] relative z-10 transition-colors duration-500 group-hover:bg-[#FFC000]">
-            <Icon className="w-4 h-4 md:w-7 md:h-7 text-[#FFC000] group-hover:text-black transition-colors duration-500" />
+            {/* Inner Icon */}
+            <div className="w-8 h-8 md:w-14 md:h-14 rounded-full bg-black flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.9)] relative z-10 transition-colors duration-500 group-hover:bg-[#FFC000]">
+              <Icon className="w-4 h-4 md:w-7 md:h-7 text-[#FFC000] group-hover:text-black transition-colors duration-500" />
+            </div>
+
           </div>
+        </motion.div>
 
-        </div>
-      </motion.div>
-
-      {/* Content Box */}
-      <motion.div 
-        className="flex-1 origin-top"
-        style={{ scale: cardScale, opacity: cardOpacity, filter: cardFilter }}
-      >
-        <div className="bg-black rounded-2xl p-6 md:p-14 border border-white/5 group-hover:border-[#FFC000]/80 transition duration-500 hover:shadow-[0_10px_40px_rgba(255,192,0,0.15)] relative overflow-hidden group-hover:-translate-y-1 min-h-[200px] md:min-h-[280px] flex flex-col justify-center will-change-transform">
-          {/* Subtle hover glow */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#FFC000]/0 to-[#FFC000]/0 group-hover:from-[#FFC000]/10 group-hover:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-          
-          <div className="relative z-10">
-            <h3 className="text-xl md:text-3xl font-extrabold text-white/60 group-hover:text-white transition-colors duration-500 mb-2 md:mb-4">
-              {step.title}
-            </h3>
-            <p className="text-white/40 group-hover:text-white/80 transition-colors duration-500 leading-relaxed text-sm md:text-lg">
-              {step.description}
-            </p>
+        {/* Content Box */}
+        <motion.div 
+          className="flex-1 origin-top"
+          style={{ scale: cardScale, opacity: cardOpacity, filter: cardFilter }}
+        >
+          <div className="bg-black rounded-2xl p-6 md:p-14 border border-white/5 group-hover:border-[#FFC000]/80 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(255,192,0,0.15)] relative overflow-hidden group-hover:-translate-y-1 min-h-[200px] md:min-h-[280px] flex flex-col justify-center">
+            {/* Subtle hover glow */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#FFC000]/0 to-[#FFC000]/0 group-hover:from-[#FFC000]/10 group-hover:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            
+            <div className="relative z-10">
+              <h3 className="text-xl md:text-3xl font-extrabold text-white/60 group-hover:text-white transition-colors duration-500 mb-2 md:mb-4">
+                {step.title}
+              </h3>
+              <p className="text-white/40 group-hover:text-white/80 transition-colors duration-500 leading-relaxed text-sm md:text-lg">
+                {step.description}
+              </p>
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
       </motion.div>
     </div>
   );
@@ -208,7 +208,7 @@ export default function Bootcamp() {
         >
           <button 
             onClick={() => window.dispatchEvent(new Event('open-booking-modal'))}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FFC000] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFC000] text-black font-extrabold text-[16px] tracking-wide px-10 py-4 rounded-full transition duration-300 hover:-translate-y-1 shadow-[0_10px_30px_rgba(255,192,0,0.3)] will-change-transform"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FFC000] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFC000] text-black font-extrabold text-[16px] tracking-wide px-10 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_30px_rgba(255,192,0,0.3)]"
           >
             Register <ArrowUpRight className="w-5 h-5" />
           </button>

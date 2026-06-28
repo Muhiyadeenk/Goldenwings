@@ -195,7 +195,7 @@ const UAELanding = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop" 
                   alt="Business Consultants in UAE" 
-                  className="w-full h-[500px] object-cover grayscale-[20%]"
+                  className="w-full h-[500px] object-cover"
                  loading="lazy" />
               </div>
             </motion.div>

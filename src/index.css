@@ -19,6 +19,10 @@
   p {
     @apply text-white/60 text-base leading-relaxed;
   }
+
+  a {
+    text-decoration: none !important;
+  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

@@ -22,36 +22,55 @@ const VideoCard = ({ story, idx, isPlaying, onTogglePlay }) => {
   useEffect(() => {
     if (videoRef.current) {
       if (isPlaying) {
-        videoRef.current.play().catch(e => console.log("Play failed", e));
+        videoRef.current.play().catch(e => {
+          // If autoplay fails, fallback gracefully (may need user interaction)
+          console.log("Play failed", e);
+        });
       } else {
         videoRef.current.pause();
       }
     }
   }, [isPlaying]);
 
+  const handleCardClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (videoRef.current) {
+      if (!isPlaying) {
+        onTogglePlay(idx);
+        // Play immediately in the same tick so mobile browsers recognize it as user-initiated
+        videoRef.current.play().catch(e => console.log("Sync play failed", e));
+      } else {
+        onTogglePlay(null);
+        videoRef.current.pause();
+      }
+    }
+  };
+
   return (
     <motion.div
       className={`flex-shrink-0 relative flex flex-col justify-end mx-3 md:mx-4 rounded-3xl p-4 w-[280px] h-[400px] md:w-[320px] md:h-[480px] overflow-hidden cursor-pointer bg-[#111] border border-white/10`}
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      onClick={handleCardClick}
     >
       {/* Background Video */}
       <video 
         ref={videoRef}
-        src={story.video}
+        src={story.video + "#t=0.1"}
         loop
         playsInline
-        preload="none"
+        preload="metadata"
         className="absolute inset-0 w-full h-full object-cover z-0 bg-gray-900"
       />
 
-      {/* Bottom - Play Toggle only */}
+      {/* Bottom - Play Toggle */}
       <div className="relative z-10 flex justify-end">
         <button 
           onClick={(e) => {
-            e.preventDefault();
             e.stopPropagation();
-            onTogglePlay(idx);
+            handleCardClick(e);
           }}
           className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/50 backdrop-blur-md hover:bg-[#D4AF37] hover:text-black text-white flex items-center justify-center transition border border-white/20 hover:border-transparent"
         >
