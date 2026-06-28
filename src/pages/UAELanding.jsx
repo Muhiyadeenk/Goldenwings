@@ -6,6 +6,7 @@ import {
   ChevronRight, Globe, BarChart3, Star, Volume2, VolumeX
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Counter = ({ end, label, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -56,8 +57,33 @@ const UAELanding = () => {
     viewport: { once: true, margin: "-100px" }
   };
 
+  const uaeSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.goldenwingsac.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "United Arab Emirates",
+        "item": "https://www.goldenwingsac.com/uae"
+      }
+    ]
+  };
+
   return (
     <div className="bg-[#0F0F0F] min-h-screen text-white pb-0 font-sans">
+      <SEO 
+        title="Golden Wings UAE | Dubai & Gulf Business Solutions"
+        description="Golden Wings offers premium corporate accounting, tax advisory, VAT compliance, and custom business setup solutions in Dubai and across the UAE."
+        canonicalUrl="https://www.goldenwingsac.com/uae"
+        jsonLD={uaeSchema}
+      />
       
       {/* 1. Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden pb-12 pt-24 bg-[#0a0a0a]">

@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import SEO from '../components/SEO';
 
 import aiOrientationImg from '../assets/galllery1/ai oriantation.png';
 import excelBootcampImg from '../assets/galllery1/image.png';
@@ -167,8 +168,33 @@ const Gallery = () => {
     }
   ];
 
+  const gallerySchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.goldenwingsac.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Gallery",
+        "item": "https://www.goldenwingsac.com/gallery"
+      }
+    ]
+  };
+
   return (
     <section className="pt-32 pb-24 relative overflow-hidden bg-primary min-h-screen" id="gallery">
+      <SEO 
+        title="Gallery | Golden Wings"
+        description="View highlights from our student orientations, practical training sessions, and campus events at Golden Wings."
+        canonicalUrl="https://www.goldenwingsac.com/gallery"
+        jsonLD={gallerySchema}
+      />
       {/* Background Decorative Light Glow */}
       <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[150px] pointer-events-none" />

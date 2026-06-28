@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Layers, UserCheck, Briefcase, Compass, Lightbulb, Rocket, ArrowUpRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 function TimelineStep({ step }) {
   const wrapperRef = useRef(null);
@@ -146,8 +147,33 @@ export default function Bootcamp() {
     }
   ];
 
+  const bootcampSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.goldenwingsac.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Boot Camp",
+        "item": "https://www.goldenwingsac.com/bootcamp"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen pt-32 pb-24 overflow-clip relative bg-[#0B0B0B]">
+      <SEO 
+        title="Boot Camp & Training | Golden Wings"
+        description="Join the Golden Wings Bootcamp to gain intensive hands-on experience in taxation, accounting software (Tally, GST), and professional skills."
+        canonicalUrl="https://www.goldenwingsac.com/bootcamp"
+        jsonLD={bootcampSchema}
+      />
       
       <div className="container mx-auto px-6 lg:px-12 max-w-5xl">
         
@@ -159,12 +185,12 @@ export default function Bootcamp() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-[#FFC000] text-xl font-bold tracking-widest uppercase mb-6">
+            <span className="block text-[#FFC000] text-xl font-bold tracking-widest uppercase mb-6">
               Boot Camp
-            </h1>
+            </span>
           </motion.div>
 
-          <motion.h2 
+          <motion.h1 
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
@@ -174,7 +200,7 @@ export default function Bootcamp() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFC000] via-[#FFD700] to-[#FFC000]">
               Professional Excellence
             </span>
-          </motion.h2>
+          </motion.h1>
 
           <motion.p 
             initial={{ opacity: 0, y: 30 }}

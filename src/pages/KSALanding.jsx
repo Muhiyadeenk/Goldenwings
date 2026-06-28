@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import SEO from '../components/SEO';
 
 const KSALanding = () => {
   useEffect(() => {
@@ -27,8 +28,33 @@ const KSALanding = () => {
     viewport: { once: true, margin: "-100px" }
   };
 
+  const ksaSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.goldenwingsac.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Saudi Arabia",
+        "item": "https://www.goldenwingsac.com/ksa"
+      }
+    ]
+  };
+
   return (
     <div className="bg-[#0a0a0a] min-h-screen text-white pb-0">
+      <SEO 
+        title="Golden Wings Saudi Arabia | KSA Accounting & Tax Solutions"
+        description="Expand your business in Saudi Arabia with confidence. Golden Wings provides premium corporate accounting, tax advisory, VAT, and business consulting in KSA."
+        canonicalUrl="https://www.goldenwingsac.com/ksa"
+        jsonLD={ksaSchema}
+      />
       
       {/* 1. Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pb-12">

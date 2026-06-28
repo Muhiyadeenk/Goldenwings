@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import SEO from '../components/SEO';
 
 // Import real team photos with exact filenames from disk
 import badushaImg from '../assets/Team/Badusha.Marketinghead.png';
@@ -21,6 +22,25 @@ import zuhairImg from '../assets/Team/ZUHAIR KATTIL PURAYIL.png';
 
 const Team = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const teamSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.goldenwingsac.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Team",
+        "item": "https://www.goldenwingsac.com/team"
+      }
+    ]
+  };
+
   const teamMembers = [
     {
       name: "SHARAFUDEEN K",
@@ -105,6 +125,12 @@ const Team = () => {
 
   return (
     <section className="pt-32 pb-24 relative overflow-hidden bg-primary min-h-screen" id="team">
+      <SEO 
+        title="Our Team | Golden Wings"
+        description="Meet the expert mentors, directors, and business consultants behind Golden Wings Global Business Solution and Education Center."
+        canonicalUrl="https://www.goldenwingsac.com/team"
+        jsonLD={teamSchema}
+      />
       {/* Background Decorative Light Glow */}
       <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[150px] pointer-events-none" />

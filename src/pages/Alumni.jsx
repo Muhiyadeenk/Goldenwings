@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, ArrowUpRight } from 'lucide-react';
 import { ImageGallery } from '@/components/ui/image-gallery';
+import SEO from '../components/SEO';
 
 // Dynamically import all images from the Alumni folder
 const globData = import.meta.glob('../assets/Alumni/*.*', { eager: true });
@@ -21,8 +22,33 @@ const alumniMembers = Object.entries(globData).map(([path, module]) => {
 });
 
 const Alumni = () => {
+  const alumniSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.goldenwingsac.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Alumni",
+        "item": "https://www.goldenwingsac.com/alumni"
+      }
+    ]
+  };
+
   return (
     <section className="pt-32 pb-24 relative overflow-hidden bg-primary min-h-screen" id="alumni">
+      <SEO 
+        title="Our Alumni & Placements | Golden Wings"
+        description="Explore our successful alumni and placements. Golden Wings students have secured roles at leading international companies and accounting firms."
+        canonicalUrl="https://www.goldenwingsac.com/alumni"
+        jsonLD={alumniSchema}
+      />
       {/* Background Decorative Light Glow */}
       <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[150px] pointer-events-none" />

@@ -40,7 +40,7 @@ const GlobalPresence = () => {
             
             <img 
               src="/ksa_cityscape.png" 
-              alt="KSA" 
+              alt="Golden Wings Saudi Arabia (KSA) Business Consulting" 
               className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
              loading="lazy" />
             
@@ -70,7 +70,7 @@ const GlobalPresence = () => {
               
               <img 
                 src="/uae_cityscape.png" 
-                alt="UAE" 
+                alt="Golden Wings United Arab Emirates (UAE) Business Consultation Services" 
                 className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
                loading="lazy" />
               
@@ -100,7 +100,7 @@ const GlobalPresence = () => {
               
               <img 
                 src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=1000&auto=format&fit=crop" 
-                alt="India" 
+                alt="Golden Wings India Educational Center & Services" 
                 className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
                loading="lazy" />
               

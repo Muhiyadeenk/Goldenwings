@@ -39,7 +39,7 @@ export default function ContactPage() {
   const sendEmail = async e => {
     e.preventDefault();
     if (!validate()) return;
-    
+
     setLoading(true);
 
     try {
@@ -61,7 +61,7 @@ export default function ContactPage() {
 
       setSub(true);
       setFormData({ user_name: '', user_phone: '', user_email: '', message: '' });
-      
+
       setTimeout(() => {
         setSub(false);
       }, 5000);
@@ -77,21 +77,21 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen pt-20 overflow-hidden">
-      
+
       {/* ── TOP HERO BANNER ── */}
       <section className="w-full bg-transparent pt-12 pb-4 lg:pb-8 px-6 relative">
         <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-white leading-tight mb-4"
           >
             Contact us
           </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white/70 text-base md:text-lg leading-relaxed max-w-3xl mx-auto"
           >
@@ -103,13 +103,13 @@ export default function ContactPage() {
       {/* ── MAIN CONTENT ── */}
       <section className="pt-12 pb-24">
         <div className="container mx-auto px-6 lg:px-12">
-          
+
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-            
+
             {/* ── LEFT COLUMN: Text & Info ── */}
-            <motion.div 
-              initial={{ opacity: 0, x: -40 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="flex-1 w-full"
@@ -122,15 +122,15 @@ export default function ContactPage() {
 
               {/* Contact Info Row */}
               <div className="flex flex-col sm:flex-row gap-12 sm:gap-24 relative">
-                
+
                 {/* Call */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <motion.div 
+                  <motion.div
                     style={{ rotate: rotateBall, x: moveBall }}
                     className="w-8 h-8 rounded-full overflow-hidden flex flex-col mb-4 shadow-[0_0_15px_rgba(255,192,0,0.2)] relative z-10"
                   >
@@ -144,13 +144,13 @@ export default function ContactPage() {
                 </motion.div>
 
                 {/* Email */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  <motion.div 
+                  <motion.div
                     style={{ rotate: rotateBall, x: moveBall }}
                     className="w-8 h-8 rounded-full overflow-hidden flex flex-col mb-4 shadow-[0_0_15px_rgba(255,192,0,0.3)] relative z-10"
                   >
@@ -167,21 +167,21 @@ export default function ContactPage() {
             </motion.div>
 
             {/* ── RIGHT COLUMN: Form Card ── */}
-            <motion.div 
-              initial={{ opacity: 0, x: 40 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
               className="flex-1 w-full max-w-xl lg:max-w-none mx-auto"
             >
               <div className="bg-[#131313] rounded-[2.5rem] p-10 sm:p-12 lg:p-16 border border-white/5 shadow-2xl relative overflow-hidden">
-                
+
                 {/* Subtle glow inside card */}
                 <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#FFC000]/5 rounded-full blur-[80px] pointer-events-none"></div>
 
                 {submitted ? (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }} 
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="flex flex-col items-center justify-center text-center py-24 gap-5"
                   >
@@ -194,57 +194,66 @@ export default function ContactPage() {
                 ) : (
                   <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-8 relative z-10">
                     <div className="relative">
-                      <input 
+                      <input
                         type="text"
-                        name="user_name" 
-                        value={formData.user_name} 
-                        onChange={onChange} 
-                        placeholder="Full Name" 
-                        className={`${inputClass} ${errors.user_name ? 'border-red-500' : ''}`} 
+                        name="user_name"
+                        value={formData.user_name}
+                        onChange={onChange}
+                        placeholder="Full Name"
+                        aria-label="Full Name"
+                        aria-invalid={!!errors.user_name}
+                        className={`${inputClass} ${errors.user_name ? 'border-red-500' : ''}`}
                       />
                       {errors.user_name && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.user_name}</span>}
                     </div>
-                    
+
                     <div className="relative">
-                      <input 
+                      <input
                         type="tel"
-                        name="user_phone" 
-                        value={formData.user_phone} 
-                        onChange={onChange} 
-                        placeholder="Phone" 
-                        className={`${inputClass} ${errors.user_phone ? 'border-red-500' : ''}`} 
+                        name="user_phone"
+                        value={formData.user_phone}
+                        onChange={onChange}
+                        placeholder="Phone"
+                        aria-label="Phone Number"
+                        aria-invalid={!!errors.user_phone}
+                        className={`${inputClass} ${errors.user_phone ? 'border-red-500' : ''}`}
                       />
                       {errors.user_phone && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.user_phone}</span>}
                     </div>
-                    
+
                     <div className="relative">
-                      <input 
+                      <input
                         type="email"
-                        name="user_email" 
-                        value={formData.user_email} 
-                        onChange={onChange} 
-                        placeholder="Email" 
-                        className={`${inputClass} ${errors.user_email ? 'border-red-500' : ''}`} 
+                        name="user_email"
+                        value={formData.user_email}
+                        onChange={onChange}
+                        placeholder="Email"
+                        aria-label="Email Address"
+                        aria-invalid={!!errors.user_email}
+                        className={`${inputClass} ${errors.user_email ? 'border-red-500' : ''}`}
                       />
                       {errors.user_email && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.user_email}</span>}
                     </div>
-                    
+
                     <div className="relative">
-                      <textarea 
-                        name="message" 
-                        value={formData.message} 
-                        onChange={onChange} 
-                        rows={4} 
-                        placeholder="Write us" 
-                        className={`${inputClass} resize-none ${errors.message ? 'border-red-500' : ''}`} 
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={onChange}
+                        rows={4}
+                        placeholder="Write us"
+                        aria-label="Your Message"
+                        aria-invalid={!!errors.message}
+                        className={`${inputClass} resize-none ${errors.message ? 'border-red-500' : ''}`}
                       />
                       {errors.message && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.message}</span>}
                     </div>
-                    
+
                     <div className="flex justify-end mt-2">
-                      <button 
-                        type="submit" 
+                      <button
+                        type="submit"
                         disabled={loading}
+                        aria-label="Submit Contact Form"
                         className="flex items-center justify-center gap-2 bg-[#FFC000] hover:bg-yellow-400 text-black font-extrabold text-[15px] tracking-wide px-12 py-4 rounded-full transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,192,0,0.3)] disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none will-change-transform"
                       >
                         {loading ? (

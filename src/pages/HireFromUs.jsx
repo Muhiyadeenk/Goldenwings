@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Star, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/SEO';
 import techImage from '../assets/images/tech_meeting.png';
 
 export default function HireFromUs() {
@@ -79,8 +80,33 @@ ${form.requirements}`;
 
   const inputClass = "w-full bg-transparent border-b border-white/20 pb-3 text-white text-[15px] placeholder-white/40 focus:border-[#FFC000] outline-none transition-colors duration-300";
 
+  const hireSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.goldenwingsac.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Hire From Us",
+        "item": "https://www.goldenwingsac.com/hire"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen pt-32 pb-24 overflow-hidden relative">
+      <SEO 
+        title="Hire From Us | Golden Wings"
+        description="Recruit highly trained accounting and taxation professionals for your business. Partner with Golden Wings for premium placement services."
+        canonicalUrl="https://www.goldenwingsac.com/hire"
+        jsonLD={hireSchema}
+      />
       
       {/* ── TOP SECTION: Pitch & Image ── */}
       <div className="container mx-auto px-6 lg:px-12 mb-24">
@@ -188,6 +214,8 @@ ${form.requirements}`;
                         value={form.full_name} 
                         onChange={onChange} 
                         placeholder="Full Name" 
+                        aria-label="Full Name"
+                        aria-invalid={!!errors.full_name}
                         className={`${inputClass} ${errors.full_name ? 'border-red-500' : ''}`} 
                       />
                       {errors.full_name && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.full_name}</span>}
@@ -198,6 +226,8 @@ ${form.requirements}`;
                         value={form.company_name} 
                         onChange={onChange} 
                         placeholder="Company Name" 
+                        aria-label="Company Name"
+                        aria-invalid={!!errors.company_name}
                         className={`${inputClass} ${errors.company_name ? 'border-red-500' : ''}`} 
                       />
                       {errors.company_name && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.company_name}</span>}
@@ -210,6 +240,8 @@ ${form.requirements}`;
                         name="accounting_role"
                         value={form.accounting_role}
                         onChange={onChange}
+                        aria-label="Accounting Role"
+                        aria-invalid={!!errors.accounting_role}
                         className={`${inputClass} appearance-none cursor-pointer ${errors.accounting_role ? 'border-red-500 text-red-400' : 'bg-transparent'}`}
                       >
                         <option value="" disabled className="bg-[#131313] text-white/40">Select Accounting Role</option>
@@ -226,6 +258,8 @@ ${form.requirements}`;
                         value={form.phone_number} 
                         onChange={onChange} 
                         placeholder="Phone Number" 
+                        aria-label="Phone Number"
+                        aria-invalid={!!errors.phone_number}
                         className={`${inputClass} ${errors.phone_number ? 'border-red-500' : ''}`} 
                       />
                       {errors.phone_number && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.phone_number}</span>}
@@ -239,6 +273,8 @@ ${form.requirements}`;
                       value={form.email} 
                       onChange={onChange} 
                       placeholder="Email Address" 
+                      aria-label="Email Address"
+                      aria-invalid={!!errors.email}
                       className={`${inputClass} ${errors.email ? 'border-red-500' : ''}`} 
                     />
                     {errors.email && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.email}</span>}
@@ -251,6 +287,8 @@ ${form.requirements}`;
                       onChange={onChange} 
                       rows={4} 
                       placeholder="Briefly describe your hiring needs..." 
+                      aria-label="Hiring Requirements"
+                      aria-invalid={!!errors.requirements}
                       className={`${inputClass} resize-none ${errors.requirements ? 'border-red-500' : ''}`} 
                     />
                     {errors.requirements && <span className="text-red-500 text-xs absolute -bottom-5 left-0">{errors.requirements}</span>}
@@ -260,6 +298,7 @@ ${form.requirements}`;
                     <button 
                       type="submit" 
                       disabled={loading}
+                      aria-label="Submit Hiring Request"
                       className="flex items-center justify-center gap-2 bg-[#FFC000] hover:bg-yellow-400 text-black font-extrabold text-[16px] tracking-wide px-16 py-4 rounded-full transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,192,0,0.3)] disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none w-full sm:w-auto will-change-transform"
                     >
                       {loading ? (
