@@ -16,6 +16,7 @@ import FloatingButtons from './components/FloatingButtons';
 import IntroAnimation from './components/IntroAnimation';
 import KSALanding from './pages/KSALanding';
 import UAELanding from './pages/UAELanding';
+import OmanLanding from './pages/OmanLanding';
 
 function App() {
   const [introFinished, setIntroFinished] = useState(false);
@@ -75,6 +76,7 @@ function App() {
             <Route path="/hire" element={<HireFromUs />} />
             <Route path="/ksa" element={<KSALanding />} />
             <Route path="/uae" element={<UAELanding />} />
+            <Route path="/oman" element={<OmanLanding />} />
           </Routes>
         </main>
         <Footer />

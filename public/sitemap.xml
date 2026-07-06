@@ -54,4 +54,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
+  <url>
+    <loc>https://www.goldenwingsac.com/oman</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
 </urlset>

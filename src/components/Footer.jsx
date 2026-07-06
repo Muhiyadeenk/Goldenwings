@@ -45,7 +45,8 @@ const Footer = () => {
     'MUKKAM',
     'HI LITE BUSINESS PARK',
     'UAE',
-    'KSA'
+    'KSA',
+    'OMAN'
   ];
 
   return (

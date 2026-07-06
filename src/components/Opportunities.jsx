@@ -5,12 +5,14 @@ import { Map, MapMarker, MarkerContent, MarkerLabel, MapArc } from '@/components
 const places = [
   { id: 1, name: "Saudi Arabia", label: "KSA", lng: 45.0, lat: 23.8 },
   { id: 2, name: "United Arab Emirates", label: "UAE", lng: 54.0, lat: 23.4 },
+  { id: 4, name: "Oman", label: "Oman", lng: 58.5, lat: 23.6 },
   { id: 3, name: "India", label: "India", lng: 78.9, lat: 20.5 }
 ];
 
 const arcs = [
   { id: 'arc-1', from: [45.0, 23.8], to: [54.0, 23.4] }, // KSA to UAE
-  { id: 'arc-2', from: [54.0, 23.4], to: [78.9, 20.5] }  // UAE to India
+  { id: 'arc-2', from: [54.0, 23.4], to: [58.5, 23.6] }, // UAE to Oman
+  { id: 'arc-3', from: [58.5, 23.6], to: [78.9, 20.5] }  // Oman to India
 ];
 
 const Opportunities = () => {
@@ -33,7 +35,7 @@ const Opportunities = () => {
             </h2>
 
             <p className="text-white/60 text-base leading-relaxed mb-10">
-              Our strategic presence enables us to provide localized expertise and insights, ensuring your business thrives in each market. From Saudi Arabia and the UAE to India, we offer tailored solutions that align with regional dynamics and drive sustainable growth. Wherever your business takes you, our team is positioned to guide you at every stage.
+              Our strategic presence enables us to provide localized expertise and insights, ensuring your business thrives in each market. From Saudi Arabia, the UAE, and Oman to India, we offer tailored solutions that align with regional dynamics and drive sustainable growth. Wherever your business takes you, our team is positioned to guide you at every stage.
             </p>
 
             <a

@@ -10,8 +10,9 @@ const Navbar = () => {
   const location = useLocation();
   const isKSA = location.pathname === '/ksa';
   const isUAE = location.pathname === '/uae';
-  const isLocalPage = isKSA || isUAE;
-  const phoneNumber = isKSA ? '+966 56 441 8027' : isUAE ? '+971 56 470 5971' : '+91 9061 515 616';
+  const isOman = location.pathname === '/oman';
+  const isLocalPage = isKSA || isUAE || isOman;
+  const phoneNumber = isKSA ? '+966 56 441 8027' : (isUAE || isOman) ? '+971 56 470 5971' : '+91 9061 515 616';
 
   useEffect(() => {
     const handleScroll = () => {

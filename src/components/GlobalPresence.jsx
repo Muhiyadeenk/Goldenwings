@@ -26,41 +26,11 @@ const GlobalPresence = () => {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* KSA Card */}
-          <Link to="/ksa">
-            <motion.div 
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative h-[400px] lg:h-[450px] rounded-2xl overflow-hidden group cursor-pointer"
-            >
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent z-10" />
-            
-            <img 
-              src="/ksa_cityscape.png" 
-              alt="Golden Wings Saudi Arabia (KSA) Business Consulting" 
-              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
-             loading="lazy" />
-            
-            <div className="absolute inset-0 z-20 flex flex-col justify-end items-center p-8 text-center pb-12">
-              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">KSA</h3>
-              <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8 max-w-sm">
-                Delve into our realm of business setup, incorporation, formation and business consulting services in Saudi Arabia.
-              </p>
-              
-              <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition duration-300 pointer-events-none">
-                <ArrowUpRight className="w-5 h-5" />
-              </button>
-            </div>
-            </motion.div>
-          </Link>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* UAE Card */}
           <Link to="/uae">
             <motion.div 
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="relative h-[400px] lg:h-[450px] rounded-2xl overflow-hidden group cursor-pointer"
@@ -76,9 +46,75 @@ const GlobalPresence = () => {
               
               <div className="absolute inset-0 z-20 flex flex-col justify-end items-center p-8 text-center pb-12">
                 <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">UAE</h3>
-                <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8 max-w-sm">
-                  Our practical insights and strategies help you with the entire spectrum of business management solutions in the UAE.
+                <div className="h-[120px] lg:h-[140px] flex items-center justify-center mb-6">
+                  <p className="text-white/80 text-sm md:text-base leading-relaxed max-w-sm">
+                    Our practical insights and strategies help you with the entire spectrum of business management solutions in the UAE.
+                  </p>
+                </div>
+                
+                <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition duration-300 pointer-events-none">
+                  <ArrowUpRight className="w-5 h-5" />
+                </button>
+              </div>
+            </motion.div>
+          </Link>
+
+          {/* KSA Card */}
+          <Link to="/ksa">
+            <motion.div 
+              initial={{ opacity: 0, y: -40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative h-[400px] lg:h-[450px] rounded-2xl overflow-hidden group cursor-pointer"
+            >
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent z-10" />
+            
+            <img 
+              src="/ksa_cityscape.png" 
+              alt="Golden Wings Saudi Arabia (KSA) Business Consulting" 
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
+             loading="lazy" />
+            
+            <div className="absolute inset-0 z-20 flex flex-col justify-end items-center p-8 text-center pb-12">
+              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">KSA</h3>
+              <div className="h-[120px] lg:h-[140px] flex items-center justify-center mb-6">
+                <p className="text-white/80 text-sm md:text-base leading-relaxed max-w-sm">
+                  Delve into our realm of business setup, incorporation, formation and business consulting services in Saudi Arabia.
                 </p>
+              </div>
+              
+              <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition duration-300 pointer-events-none">
+                <ArrowUpRight className="w-5 h-5" />
+              </button>
+            </div>
+            </motion.div>
+          </Link>
+
+          {/* Oman Card */}
+          <Link to="/oman">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative h-[400px] lg:h-[450px] rounded-2xl overflow-hidden group cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent z-10" />
+              
+              <img 
+                src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1000&auto=format&fit=crop" 
+                alt="Golden Wings Oman Business Consulting & Tax Solutions" 
+                className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
+                loading="lazy" />
+              
+              <div className="absolute inset-0 z-20 flex flex-col justify-end items-center p-8 text-center pb-12">
+                <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">OMAN</h3>
+                <div className="h-[120px] lg:h-[140px] flex items-center justify-center mb-6">
+                  <p className="text-white/80 text-sm md:text-base leading-relaxed max-w-sm">
+                    Maximize your growth in the Sultanate of Oman with our expert corporate services, business setup, and strategic consulting solutions.
+                  </p>
+                </div>
                 
                 <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition duration-300 pointer-events-none">
                   <ArrowUpRight className="w-5 h-5" />
@@ -90,8 +126,8 @@ const GlobalPresence = () => {
           {/* India Card */}
           <a href="#services">
             <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="relative h-[400px] lg:h-[450px] rounded-2xl overflow-hidden group cursor-pointer"
             >
@@ -106,9 +142,11 @@ const GlobalPresence = () => {
               
               <div className="absolute inset-0 z-20 flex flex-col justify-end items-center p-8 text-center pb-12">
                 <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">INDIA</h3>
-                <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8 max-w-sm">
-                  Discover our comprehensive business services and career-focused courses designed to help professionals and organizations achieve sustainable growth and success across India.
-                </p>
+                <div className="h-[120px] lg:h-[140px] flex items-center justify-center mb-6">
+                  <p className="text-white/80 text-sm md:text-base leading-relaxed max-w-sm">
+                    Our career-focused courses and business services help professionals and organizations achieve sustainable growth and success across India.
+                  </p>
+                </div>
                 
                 <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white group-hover:bg-gold group-hover:text-primary group-hover:border-gold transition duration-300 pointer-events-none">
                   <ArrowUpRight className="w-5 h-5" />
