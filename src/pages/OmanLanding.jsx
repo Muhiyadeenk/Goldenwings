@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import omanImg from '../assets/gallery2/oman.png';
 
 const Counter = ({ end, label, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -91,7 +92,8 @@ const OmanLanding = () => {
         
         {/* Background Image - Sultan Qaboos Grand Mosque Muscat Oman */}
         <motion.div 
-          className="absolute inset-0 opacity-35 bg-[url('https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center z-0"
+          className="absolute inset-0 opacity-35 bg-cover bg-center z-0"
+          style={{ backgroundImage: `url(${omanImg})` }}
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 25, ease: "linear", repeat: Infinity }}
         />
@@ -196,7 +198,7 @@ const OmanLanding = () => {
             >
               <div className="relative rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl aspect-[4/3] bg-neutral-900">
                 <img 
-                  src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1200&auto=format&fit=crop" 
+                  src={omanImg} 
                   alt="Oman Mountain and Coast Landscape" 
                   className="w-full h-full object-cover opacity-70"
                 />

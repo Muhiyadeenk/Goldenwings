@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import omanImg from '../assets/gallery2/oman.png';
 
 const GlobalPresence = () => {
   return (
@@ -103,7 +104,7 @@ const GlobalPresence = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent z-10" />
               
               <img 
-                src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1000&auto=format&fit=crop" 
+                src={omanImg} 
                 alt="Golden Wings Oman Business Consulting & Tax Solutions" 
                 className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 will-change-transform"
                 loading="lazy" />
