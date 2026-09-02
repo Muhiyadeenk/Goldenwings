@@ -22,7 +22,7 @@ const socials = [
 
 const Footer = () => {
   const location = useLocation();
-  if (location.pathname === '/uae' || location.pathname === '/oman') return null;
+  if (location.pathname === '/uae') return null;
 
   const courses = ['MDGAT', 'DCPCA', 'CPCA', 'HSS ST'];
 

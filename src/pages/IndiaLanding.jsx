@@ -212,10 +212,6 @@ const IndiaLanding = () => {
                 <Phone className="w-5 h-5 mr-3 text-[#FFC000]" />
                 +91 6235 815 616
               </a>
-              <a href="mailto:goldenwingsgcc1@gmail.com" className="flex items-center text-gray-400 hover:text-[#FFC000] transition-colors mt-4">
-                <Mail className="w-5 h-5 mr-3 text-[#FFC000]" />
-                goldenwingsgcc1@gmail.com
-              </a>
             </div>
 
             <div className="space-y-6">
@@ -226,9 +222,6 @@ const IndiaLanding = () => {
                 </a>
                 <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#FFC000] hover:text-[#0a0a0a] transition">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
-                </a>
-                <a href="mailto:goldenwingsgcc1@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#FFC000] hover:text-[#0a0a0a] transition">
-                  <Mail className="w-5 h-5" />
                 </a>
               </div>
             </div>

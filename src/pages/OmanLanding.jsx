@@ -377,9 +377,9 @@ const OmanLanding = () => {
               <Link to="/contact" className="w-full sm:w-auto px-8 py-4 bg-[#D4AF37] text-[#0F0F0F] font-bold rounded-lg hover:bg-[#b8952b] transition flex items-center justify-center text-lg shadow-lg">
                 Schedule Consultation
               </Link>
-              <a href="mailto:goldenwingsgcc1@gmail.com" className="w-full sm:w-auto px-8 py-4 border border-white text-white font-bold rounded-lg hover:bg-white hover:text-black transition flex items-center justify-center text-lg">
+              <Link to="/contact" className="w-full sm:w-auto px-8 py-4 border border-white text-white font-bold rounded-lg hover:bg-white hover:text-black transition flex items-center justify-center text-lg">
                 Contact Our Team
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -408,14 +408,6 @@ const OmanLanding = () => {
                 <Phone className="w-5 h-5 mr-3 text-[#D4AF37]" />
                 +971 56 470 5971
               </a>
-              <a href="tel:+971563117500" className="flex items-center text-gray-400 hover:text-[#D4AF37] transition-colors">
-                <Phone className="w-5 h-5 mr-3 text-[#D4AF37]" />
-                +971 56 311 7500
-              </a>
-              <a href="mailto:goldenwingsgcc1@gmail.com" className="flex items-center text-gray-400 hover:text-[#D4AF37] transition-colors mt-4">
-                <Mail className="w-5 h-5 mr-3 text-[#D4AF37]" />
-                goldenwingsgcc1@gmail.com
-              </a>
             </div>
 
             <div className="space-y-6">
@@ -423,9 +415,6 @@ const OmanLanding = () => {
               <div className="flex gap-4">
                 <a href="https://wa.me/971564705971" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition">
                   <Phone className="w-5 h-5" />
-                </a>
-                <a href="mailto:goldenwingsgcc1@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#0F0F0F] transition">
-                  <Mail className="w-5 h-5" />
                 </a>
               </div>
             </div>

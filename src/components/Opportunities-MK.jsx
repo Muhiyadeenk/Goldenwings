@@ -5,8 +5,8 @@ import { Map, MapMarker, MarkerContent, MarkerLabel, MapArc } from '@/components
 const places = [
   { id: 1, name: "Saudi Arabia", label: "KSA", lng: 45.0, lat: 23.8 },
   { id: 2, name: "United Arab Emirates", label: "UAE", lng: 54.0, lat: 23.4 },
-  { id: 3, name: "India", label: "India", lng: 78.9, lat: 20.5 },
-  { id: 4, name: "Oman", label: "Oman", lng: 58.5, lat: 23.6 }
+  { id: 4, name: "Oman", label: "Oman", lng: 58.5, lat: 23.6 },
+  { id: 3, name: "India", label: "India", lng: 78.9, lat: 20.5 }
 ];
 
 const arcs = [
